@@ -11,13 +11,18 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const Product = () => {
+  const location = useLocation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const data = queryParams.get("data");
+
     const getProducts = async () => {
       try {
         const data = await fetchProducts();
@@ -28,8 +33,19 @@ const Product = () => {
         setLoading(false);
       }
     };
-    getProducts();
-  }, []);
+
+    if (data) {
+      try {
+        const parsedProducts = JSON.parse(decodeURIComponent(data));
+        setProducts(parsedProducts);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error parsing product data:", error);
+      }
+    } else {
+      getProducts();
+    }
+  }, [location.search]);
 
   const handleSearch = async () => {
     if (searchQuery.trim()) {
@@ -55,13 +71,17 @@ const Product = () => {
           data.map((p) => p.id).includes(product.id)
         )
       );
+
       //sort the products based on the rank of data
       setProducts((prevProducts) =>
-        prevProducts.sort(
-          (a, b) =>
-            data.find((p) => p.id === a.id).rank -
-            data.find((p) => p.id === b.id).rank
-        )
+        prevProducts.sort((a, b) => {
+          const rankA = data.find((p) => p.id === a.id)?.rank;
+          const rankB = data.find((p) => p.id === b.id)?.rank;
+
+          const validRankA = isNaN(rankA) ? Infinity : rankA;
+          const validRankB = isNaN(rankB) ? Infinity : rankB;
+          return validRankA - validRankB;
+        })
       );
       setLoading(false);
     } catch (error) {

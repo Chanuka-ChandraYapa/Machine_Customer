@@ -11,7 +11,6 @@ const apiClient = axios.create({
 export const fetchProducts = async () => {
   try {
     const response = await apiClient.get("/products");
-    console.log("Products fetched successfully:", response.data);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching products:", error.message);
@@ -25,7 +24,6 @@ export const searchProducts = async (query) => {
     const response = await apiClient.get("/products/search", {
       params: { q: query }, // Pass the search query as a parameter
     });
-    console.log(`Search results for "${query}":`, response.data);
     return response.data.products;
   } catch (error) {
     console.error(
@@ -33,5 +31,43 @@ export const searchProducts = async (query) => {
       error.message
     );
     throw new Error("Failed to search products");
+  }
+};
+
+// Fetch all categories
+export const fetchCategories = async () => {
+  try {
+    const response = await apiClient.get("/products/category-list");
+    return response.data; // Assuming the API returns a "categories" field
+  } catch (error) {
+    console.error("Error fetching categories:", error.message);
+    throw new Error("Failed to fetch categories");
+  }
+};
+
+// Fetch products by category
+export const fetchProductsByCategory = async (category) => {
+  try {
+    const response = await apiClient.get(`/products/category/${category}`);
+    return response.data.products;
+  } catch (error) {
+    console.error(
+      `Error fetching products in category "${category}":`,
+      error.message
+    );
+    throw new Error(`Failed to fetch products in category "${category}"`);
+  }
+};
+
+// Get all brands from a list of products
+export const extractBrands = (products) => {
+  try {
+    const brands = Array.from(
+      new Set(products.map((product) => product.brand))
+    );
+    return brands;
+  } catch (error) {
+    console.error("Error extracting brands:", error.message);
+    throw new Error("Failed to extract brands");
   }
 };

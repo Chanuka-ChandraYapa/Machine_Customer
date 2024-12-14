@@ -1,5 +1,5 @@
 // File: src/pages/Form.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Button,
@@ -16,6 +16,13 @@ import {
   Box,
   InputLabel,
 } from "@mui/material";
+import {
+  extractBrands,
+  fetchCategories,
+  fetchProductsByCategory,
+} from "../services/apiService";
+import { sendProducts } from "../services/modelService";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -24,12 +31,13 @@ const Form = () => {
     phone: "",
     communication: "",
     category: "",
+    brand: "",
     productName: "",
     quantity: 1,
     minPrice: "",
     maxPrice: "",
     discounts: false,
-    secondhand: "No",
+    secondhand: false,
     preferredBrands: "",
     avoidBrands: "",
     quality: "",
@@ -51,18 +59,85 @@ const Form = () => {
     additionalNotes: "",
   });
 
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [isBrandFieldActive, setIsBrandFieldActive] = useState(false);
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const findCategories = async () => {
+      try {
+        const response = await fetchCategories(); // Replace `apiClient` with your configured axios instance
+        setCategories(response);
+      } catch (error) {
+        console.error("Error fetching categories:", error.message);
+      }
+    };
+
+    findCategories();
+  }, []);
+
+  const fetchProducts = async (category) => {
+    try {
+      const response = await fetchProductsByCategory(category);
+      setProducts(response);
+      const productBrands = extractBrands(response);
+      setBrands(productBrands);
+      setIsBrandFieldActive(true);
+    } catch (error) {
+      console.error(
+        `Error fetching products in category "${category}":`,
+        error.message
+      );
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
+
+    if (name === "category") {
+      fetchProducts(value);
+      setFormData((prevData) => ({ ...prevData, brand: "" })); // Reset brand selection
+      setIsBrandFieldActive(false);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
+    try {
+      const data = await sendProducts(products);
+      //remove the products not in data by checking their ids
+      // Filter the products to include only those in the data array
+      const filteredProducts = products.filter((product) =>
+        data.some((p) => p.id === product.id)
+      );
+
+      // Sort the filtered products based on the rank in the data array
+      const sortedProducts = filteredProducts.sort((a, b) => {
+        const rankA = data.find((p) => p.id === a.id)?.rank;
+        const rankB = data.find((p) => p.id === b.id)?.rank;
+
+        const validRankA = isNaN(rankA) ? Infinity : rankA;
+        const validRankB = isNaN(rankB) ? Infinity : rankB;
+        return validRankA - validRankB;
+      });
+      const encodedProducts = encodeURIComponent(
+        JSON.stringify(sortedProducts)
+      );
+      navigate(`/products?data=${encodedProducts}`);
+      console.log("Processed Products:", sortedProducts);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
+
+  const handleRank = async () => {};
 
   return (
     <Box
@@ -89,11 +164,21 @@ const Form = () => {
             value={formData.category}
             onChange={handleChange}
           >
-            <MenuItem value="Electronics">Electronics</MenuItem>
-            <MenuItem value="Clothing">Clothing</MenuItem>
-            <MenuItem value="Home Appliances">Home Appliances</MenuItem>
-            <MenuItem value="Books">Books</MenuItem>
-            <MenuItem value="Beauty">Beauty</MenuItem>
+            {categories.map((category) => (
+              <MenuItem key={category} value={category}>
+                {category}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl fullWidth margin="normal" disabled={!isBrandFieldActive}>
+          <InputLabel>Brand</InputLabel>
+          <Select name="brand" value={formData.brand} onChange={handleChange}>
+            {brands.map((brand) => (
+              <MenuItem key={brand} value={brand}>
+                {brand}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
         <TextField
@@ -146,17 +231,16 @@ const Form = () => {
           }
           label="Consider Discounts or Deals?"
         />
-        <FormControl margin="normal">
-          <FormLabel>Consider Secondhand Products?</FormLabel>
-          <RadioGroup
-            name="secondhand"
-            value={formData.secondhand}
-            onChange={handleChange}
-          >
-            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-            <FormControlLabel value="No" control={<Radio />} label="No" />
-          </RadioGroup>
-        </FormControl>
+        <FormControlLabel
+          control={
+            <Checkbox
+              name="secondhand"
+              checked={formData.secondhand}
+              onChange={handleChange}
+            />
+          }
+          label="Consider Second hand products?"
+        />
 
         {/* Submit Button */}
         <Box mt={3}>

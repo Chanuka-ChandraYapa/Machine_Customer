@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 
 # User's criteria (example)
 user_criteria = {
-    "price": 1099.0,             # Preference for lower price (normalized)
+    "price": 99.0,             # Preference for lower price (normalized)
     "rating": 4.5,            # Preference for highest rating (normalized)
     "review_sentiment": 0.1,  # Preference for positive reviews
     "shipping_time": 1,     # Moderate preference for fast shipping
