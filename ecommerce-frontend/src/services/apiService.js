@@ -11,6 +11,7 @@ const apiClient = axios.create({
 export const fetchProducts = async () => {
   try {
     const response = await apiClient.get("/products");
+    console.log("Products:", response.data.products);
     return response.data.products;
   } catch (error) {
     console.error("Error fetching products:", error.message);

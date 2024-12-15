@@ -1,19 +1,14 @@
 import pandas as pd
 import numpy as np
-
-# User-defined weight preferences for each attribute
-user_weights = {
-    "price": 0.1,             # Lower price is preferred
-    "rating": 0.4,            # Higher rating is more important
-    "review_sentiment": 0.1,  # Positive reviews are desirable
-    "shipping_time": 0.1      # Faster shipping is slightly preferred
-}
+from components.requirements import user_weights
 
 # Step 1: Normalize the numerical attributes
 
 
 def normalize(series, inverse=False):
     """Normalize a pandas series to a 0-1 range. Invert if lower values are preferred."""
+    if series.max() == series.min():
+        return series
     normalized = (series - series.min()) / (series.max() - series.min())
     return 1 - normalized if inverse else normalized
 
@@ -28,6 +23,8 @@ def rank(products):
     df['review_sentiment_normalized'] = normalize(df['review_sentiment'])
     df['shipping_time_normalized'] = normalize(
         df['shipping_time'], inverse=True)
+
+    print(df['price_normalized'])
 
     # Step 2: Calculate weighted scores for each product
     df['weighted_score'] = (

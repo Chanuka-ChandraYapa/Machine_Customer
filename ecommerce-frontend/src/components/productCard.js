@@ -21,9 +21,31 @@ const ProductCard = ({ product }) => {
         <Typography variant="h6" gutterBottom noWrap>
           {product.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" noWrap>
-          {product.description}
-        </Typography>
+        <Box
+          sx={{
+            position: "relative",
+            overflow: "hidden",
+            display: "inline-block",
+            width: "100%",
+          }}
+        >
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            noWrap
+            sx={{
+              display: "inline-block",
+              whiteSpace: "nowrap",
+              transition: "transform 0s",
+              ":hover": {
+                transition: "transform 20s linear",
+                transform: "translateX(-100%)",
+              },
+            }}
+          >
+            {product.description}
+          </Typography>
+        </Box>
         <Typography variant="h6" sx={{ mt: 1 }}>
           ${product.price}
         </Typography>

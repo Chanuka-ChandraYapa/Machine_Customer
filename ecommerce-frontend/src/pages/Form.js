@@ -21,7 +21,7 @@ import {
   fetchCategories,
   fetchProductsByCategory,
 } from "../services/apiService";
-import { sendProducts } from "../services/modelService";
+import { sendProducts, sendRequirements } from "../services/modelService";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
@@ -34,8 +34,8 @@ const Form = () => {
     brand: "",
     productName: "",
     quantity: 1,
-    minPrice: "",
-    maxPrice: "",
+    minPrice: 99,
+    maxPrice: 999,
     discounts: false,
     secondhand: false,
     preferredBrands: "",
@@ -111,6 +111,7 @@ const Form = () => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     try {
+      const req = await sendRequirements(formData);
       const data = await sendProducts(products);
       //remove the products not in data by checking their ids
       // Filter the products to include only those in the data array

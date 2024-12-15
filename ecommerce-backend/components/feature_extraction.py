@@ -22,13 +22,13 @@ def preprocess_products(product_data):
 
     }
 
-    # Normalize numerical features
-    extracted_features["price_normalized"] = normalize_value(
-        extracted_features["price"], 0, 1000, inverse=True)
-    extracted_features["rating_normalized"] = normalize_value(
-        extracted_features["rating"], 0, 5)
-    extracted_features["stock_normalized"] = normalize_value(
-        extracted_features["stock"], 0, 100)
+    # # Normalize numerical features
+    # extracted_features["price_normalized"] = normalize_value(
+    #     extracted_features["price"], 0, 1000, inverse=True)
+    # extracted_features["rating_normalized"] = normalize_value(
+    #     extracted_features["rating"], 0, 5)
+    # extracted_features["stock_normalized"] = normalize_value(
+    #     extracted_features["stock"], 0, 100)
 
     return extracted_features
 

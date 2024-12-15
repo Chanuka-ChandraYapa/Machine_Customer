@@ -68,13 +68,13 @@ const products = [
 ];
 
 // Flask backend URL
-const FLASK_BACKEND_URL = "http://127.0.0.1:5000/process-products";
+const FLASK_BACKEND_URL = "http://127.0.0.1:5000";
 
 // Function to send a list of products to Flask backend
 export const sendProducts = async (products) => {
   try {
     const response = await axios.post(
-      FLASK_BACKEND_URL,
+      `${FLASK_BACKEND_URL}/process-products`,
       { products },
       {
         headers: {
@@ -91,5 +91,28 @@ export const sendProducts = async (products) => {
     );
   }
 };
-// Call the function
-// sendProductToFlask();
+
+// Function to send user requirements to the backend
+export const sendRequirements = async (requirements) => {
+  try {
+    const response = await axios.post(
+      `${FLASK_BACKEND_URL}/requirements`,
+      { requirements },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(
+      "Processed Requirements Data from Flask Backend:",
+      response.data
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error calling Flask backend:",
+      error.response?.data || error.message
+    );
+  }
+};

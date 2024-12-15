@@ -12,12 +12,15 @@ import {
   Button,
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import ProductModal from "../components/productModal";
 
 const Product = () => {
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -109,37 +112,58 @@ const Product = () => {
     );
   }
 
+  const handleOpenModal = (product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h4" textAlign="center" gutterBottom>
-        Product List
-      </Typography>
+    <>
+      <Box sx={{ p: 4 }}>
+        <Typography variant="h4" textAlign="center" gutterBottom>
+          Product List
+        </Typography>
 
-      {/* Search Bar */}
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
-        <TextField
-          label="Search Products"
-          variant="outlined"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          sx={{ mr: 2 }}
-        />
-        <Button variant="contained" onClick={handleSearch} sx={{ mr: 2 }}>
-          Search
-        </Button>
-        <Button variant="contained" onClick={handleRank}>
-          Rank
-        </Button>
+        {/* Search Bar */}
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+          <TextField
+            label="Search Products"
+            variant="outlined"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            sx={{ mr: 2 }}
+          />
+          <Button variant="contained" onClick={handleSearch} sx={{ mr: 2 }}>
+            Search
+          </Button>
+          <Button variant="contained" onClick={handleRank}>
+            Rank
+          </Button>
+        </Box>
+
+        <Grid container justifyContent="center">
+          {products.map((product) => (
+            <Grid item key={product.id}>
+              <div onClick={() => handleOpenModal(product)}>
+                <ProductCard product={product} />
+              </div>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
-
-      <Grid container justifyContent="center">
-        {products.map((product) => (
-          <Grid item key={product.id}>
-            <ProductCard product={product} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+      {selectedProduct && (
+        <ProductModal
+          open={isModalOpen}
+          handleClose={handleCloseModal}
+          product={selectedProduct}
+        />
+      )}
+    </>
   );
 };
 
