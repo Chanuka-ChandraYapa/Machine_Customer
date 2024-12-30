@@ -1,29 +1,45 @@
 import React, { useState } from "react";
-import "./Simulation.css"; // Optional for styling
+import ReusableCard from "../components/ReusableCard";
+import Liquid from "../components/Liquid";
+import Solid from "../components/Solid";
+import Individual from "../components/Individual";
+import "./Simulation.css";
 
 const Simulation = () => {
-  const [milkLevel, setMilkLevel] = useState(100); // Initial milk level at 100%
-
-  const consumeMilk = () => {
-    setMilkLevel((prev) => (prev > 10 ? prev - 10 : 0)); // Reduce milk by 10%, not below 0
-  };
+  const [milkVolume, setMilkVolume] = useState(2000); // Initial milk volume in mL
+  const [butterMass, setButterMass] = useState(500); // Initial butter mass in grams
+  const [eggCount, setEggCount] = useState(30); // Initial egg count
 
   return (
     <div className="simulation-container">
-      <h1>Milk</h1>
-      <div className="milk-container">
-        <div className="lid"></div>
-        <div className="bottle">
-          <div
-            className="milk-level"
-            style={{ height: `${milkLevel}%` }} // Adjust the milk level height
-          ></div>
-        </div>
+      <h1>Food Simulation</h1>
+      <div className="food-items">
+
+        {/* Milk */}
+        <ReusableCard
+          title="Milk"
+          content={<Liquid volume={milkVolume} maxVolume={1000} />}
+          onConsume={() => setMilkVolume((prev) => (prev > 100 ? prev - 100 : 0))}
+          label={`Milk Volume: ${milkVolume} mL`}
+        />
+
+        {/* Butter */}
+        <ReusableCard
+          title="Butter"
+          content={<Solid mass={butterMass} maxMass={500} />}
+          onConsume={() => setButterMass((prev) => (prev > 50 ? prev - 50 : 0))}
+          label={`Butter Mass: ${butterMass} g`}
+        />
+
+        {/* Eggs */}
+        <ReusableCard
+          title="Eggs"
+          content={<Individual count={eggCount} />}
+          onConsume={() => setEggCount((prev) => (prev > 0 ? prev - 1 : 0))}
+          label={`Eggs Remaining: ${eggCount}`}
+        />
+
       </div>
-      <button onClick={consumeMilk} className="consume-button">
-        Consume Milk
-      </button>
-      <p>Milk Level: {milkLevel}%</p>
     </div>
   );
 };
