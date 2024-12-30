@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import Home from "./pages/Home";
 import Product from "./pages/Products";
 import Form from "./pages/Form";
+import Simulation from "./pages/simulation";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -27,6 +28,9 @@ const App = () => {
           <Button color="inherit" component={Link} to="/form">
             Requirements
           </Button>
+          <Button color="inherit" component={Link} to="/simulation">
+            Simulation
+          </Button>
         </Toolbar>
       </AppBar>
       <Box sx={{ mt: 4 }}>
@@ -37,6 +41,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} /> */}
           <Route path="/form" element={<Form />} />
           <Route path="/products/:products" element={<Product />} />
+          <Route path="/simulation" element={<Simulation />} />
         </Routes>
       </Box>
     </Router>

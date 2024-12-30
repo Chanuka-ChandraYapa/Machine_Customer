@@ -1,0 +1,85 @@
+/* Simulation.css */
+
+.simulation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+    
+  h1 {
+    margin-bottom: 20px;
+  }
+    
+  .milk-container {
+    width: 120px;
+    height: 300px;
+    border: 2px solid #000;
+    background-color: #1b1d5c;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden; /* Prevent milk from overflowing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px; /* Rounded top and flat bottom */
+  }
+    
+  .lid {
+    width: 50%;
+    height: 10%;
+    background-color: #007bff;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    border: 2px solid #000;
+  }
+  
+  .bottle {
+    width: 90%;
+    height: 88%;
+    background-color: #cfd4d1;
+    position: absolute;
+    bottom: 0;
+    left: 4%;
+    z-index: 5;
+    border-radius: 40px 40px 10px 10px; /* Rounded top and flat bottom */
+    overflow: hidden;
+    border: 2px solid #000;
+  }
+    
+  .milk-level {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.3s ease;
+    background-color: #f8f4f4; /* Milk color */
+    z-index: 1;
+    border-radius: 0 0 10px 10px; /* Match the bottle's rounded bottom */
+  }
+  
+  .consume-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .consume-button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
