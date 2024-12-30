@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
-from components.requirements import user_criteria
+from services.requirements import user_criteria
 
 
 def cluster_distance(centroid, user_vector):

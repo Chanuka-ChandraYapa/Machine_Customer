@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from components.requirements import user_weights
+from services.requirements import user_weights
 
 # Step 1: Normalize the numerical attributes
 
