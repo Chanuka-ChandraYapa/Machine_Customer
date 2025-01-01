@@ -4,6 +4,7 @@ from components.clustering import cluster
 from components.ranking import rank
 from components.requirements import update_requirements
 from flask_cors import CORS as cors
+from components.processProduct import ProcessProduct 
 
 app = Flask(__name__)
 cors(app)
@@ -30,6 +31,16 @@ def requirements():
     requirements = data.get('requirements')
     update_requirements(requirements)
     print(requirements)
+
+    return jsonify({"status": "success", "processed_data": ""})
+
+@app.route('/updateProductQuantity', methods=['POST'])
+def updateProductQuantity():
+    data = request.json
+    print('Updated product:',data)
+    product = data.get('productName')
+    remainingQuantity = data.get('remainingQuantity')
+    ProcessProduct(product, remainingQuantity)
 
     return jsonify({"status": "success", "processed_data": ""})
 
