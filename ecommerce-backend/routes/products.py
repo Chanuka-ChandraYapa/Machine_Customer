@@ -13,6 +13,7 @@ def process_products():
     for product in products:
         processed_products.append(preprocess_products(product))
 
+    print(processed_products)
     clustered_products = cluster(processed_products)
     ranked_products = rank(clustered_products)
 
