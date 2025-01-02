@@ -1,8 +1,8 @@
 import requests
-from components.clustering import cluster
-from components.ranking import rank
-from components.feature_extraction import preprocess_products
-from components.requirements import user_criteria
+from services.clustering import cluster
+from services.ranking import rank
+from services.feature_extraction import preprocess_products
+from services.requirements import user_criteria
 
 def SearchProduct(name):
     # URL for searching products
