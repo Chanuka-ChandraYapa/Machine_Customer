@@ -122,6 +122,7 @@ const Simulation = () => {
           content={<Solid mass={butterMass} maxMass={500} />}
           onConsume={() => {
             setButterMass((prev) => Math.max(0, prev - 50));
+            handleConsume("Butter", butterMass - 50);
           }}
           label={`Butter Mass: ${butterMass} g`}
           recommendedProduct={recommendedButter}
@@ -137,6 +138,7 @@ const Simulation = () => {
           content={<Individual count={eggCount} />}
           onConsume={() => {
             setEggCount((prev) => Math.max(0, prev - 1));
+            handleConsume("Eggs", eggCount - 1);
           }}
           label={`Eggs Remaining: ${eggCount}`}
           recommendedProduct={recommendedEgg}
