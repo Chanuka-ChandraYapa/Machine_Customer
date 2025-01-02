@@ -23,12 +23,12 @@ def SearchProduct(name):
 
 def ProcessProduct(name, quantity):
     # Step 1: Check if the product should be bought
-    if (name=="Milk" and quantity < 500) or (name=="Butter" and quantity<250) or (name=="Eggs" and quantity<15):  # Example threshold to trigger purchase decision
+    if (name == "Milk" and quantity < 500) or (name == "Butter" and quantity < 250) or (name == "Eggs" and quantity < 15):  
         print(f"Quantity of {name} is low. Deciding whether to buy...")
         
         # Step 2: Search for the product
         products = SearchProduct(name)
-        print("Found: " ,products)
+        print("Found: ", products)
         
         # If products are found, process them
         if products:
@@ -44,7 +44,11 @@ def ProcessProduct(name, quantity):
             # Step 6: Select the best product based on ranking
             best_product = ranked_products[0]  # Select the top-ranked product
             print(f"Best product to buy: {best_product}")
+            
+            return best_product  # Return the best product to the frontend
         else:
             print(f"No products found for {name}.")
+            return None
     else:
         print(f"Quantity of {name} is sufficient. No purchase needed.")
+        return None
