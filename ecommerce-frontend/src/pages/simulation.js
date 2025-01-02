@@ -41,6 +41,22 @@ const Simulation = () => {
     }
   };
 
+  const resetProduct = (productType) => {
+    switch (productType) {
+      case "Milk":
+        setMilkVolume(1000);
+        break;
+      case "Butter":
+        setButterMass(500);
+        break;
+      case "Eggs":
+        setEggCount(30);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="simulation-container">
       <h1>Food Simulation</h1>
@@ -58,6 +74,8 @@ const Simulation = () => {
           }}
           label={`Milk Volume: ${milkVolume} mL`}
           recommendedProduct={recommendedMilk} // Only pass recommendedMilk to Milk card
+          productType="Milk"
+          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
         />
 
         {/* Butter */}
@@ -73,6 +91,8 @@ const Simulation = () => {
           }}
           label={`Butter Mass: ${butterMass} g`}
           recommendedProduct={recommendedButter} // Only pass recommendedButter to Butter card
+          productType="Butter"
+          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
         />
 
         {/* Eggs */}
@@ -88,6 +108,8 @@ const Simulation = () => {
           }}
           label={`Eggs Remaining: ${eggCount}`}
           recommendedProduct={recommendedEgg} // Only pass recommendedEgg to Egg card
+          productType="Eggs"
+          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
         />
       </div>
     </div>
