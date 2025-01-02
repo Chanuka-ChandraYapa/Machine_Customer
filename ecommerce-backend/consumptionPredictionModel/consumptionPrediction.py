@@ -30,3 +30,27 @@ print(f"Root Mean Squared Error: {rmse}")
 # Save the trained model
 joblib.dump(model, "threshold_model.pkl")
 print("Model saved as threshold_model.pkl")
+
+
+# Prediction function
+def predict_threshold(input_data):
+    """Predict the scaled threshold for a given input."""
+    input_df = pd.DataFrame([input_data])
+    input_df = pd.get_dummies(
+        input_df, columns=["product_type"], drop_first=True)
+    # Align with training data columns
+    input_df = input_df.reindex(columns=X.columns, fill_value=0)
+    prediction = model.predict(input_df)[0]
+    return prediction
+
+
+# Example prediction
+example_input = {
+    "average_consumption": 250,
+    "daily_consumption_variance": 20,
+    "refill_frequency": 10,
+    "current_quantity": 300,
+    "product_type": "Milk",
+}
+predicted_threshold = predict_threshold(example_input)
+print(f"Predicted scaled threshold: {predicted_threshold}")
