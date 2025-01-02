@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from components.requirements import user_weights
+from services.requirements import user_weights
 
 # Step 1: Normalize the numerical attributes
 
@@ -41,7 +41,7 @@ def rank(products):
     ranked_products = df.sort_values(by='rank')
 
     # Display the results
-    print("Ranked Products Based on Weighted Scoring:")
-    print(ranked_products[['id', 'weighted_score', 'rank']])
+    # print("Ranked Products Based on Weighted Scoring:")
+    # print(ranked_products[['id', 'weighted_score', 'rank']])
 
     return ranked_products.to_dict(orient='records')
