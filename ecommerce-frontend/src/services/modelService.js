@@ -116,3 +116,25 @@ export const sendRequirements = async (requirements) => {
     );
   }
 };
+
+// Function to send updates of product quantities to the backend
+export const sendProductUpdates = async (product) => {
+  try {
+    const response = await axios.post(
+      `${FLASK_BACKEND_URL}/updateProductQuantity`,
+      product, // Sending single product object
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log("Updated Product Data from Flask Backend:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error calling Flask backend:",
+      error.response?.data || error.message
+    );
+  }
+};

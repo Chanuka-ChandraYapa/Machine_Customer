@@ -3,7 +3,8 @@ import { sendProducts } from "./modelService";
 
 // API Client
 const apiClient = axios.create({
-  baseURL: "https://dummyjson.com",
+  // baseURL: "https://dummyjson.com"
+  baseURL:"http://localhost:5001",
   timeout: 5000,
 });
 

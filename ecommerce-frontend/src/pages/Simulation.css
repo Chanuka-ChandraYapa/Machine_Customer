@@ -1,0 +1,47 @@
+.simulation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .food-items {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 80%; /* Optional: Limit container width */
+  }
+  
+  .item {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .consume-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .consume-button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
