@@ -1,0 +1,4 @@
+product_type, average_consumption, daily_consumption_variance, refill_frequency, current_quantity, threshold
+Milk, 300, 50, 7, 500, 200
+Butter, 100, 20, 14, 200, 80
+Eggs, 2, 0.5, 3, 12, 4

@@ -86,7 +86,7 @@ const Simulation = () => {
 
   return (
     <div className="simulation-container">
-      <h1 className="title">Food Simulation</h1>
+      <h1 className="title">Smart Refrigerator</h1>
       <div className="toggle-container">
         <label className="toggle-label">
           Enable Automatic Buying
@@ -129,6 +129,7 @@ const Simulation = () => {
           threshold={butterThreshold}
           showSettings={!automaticBuying}
           onEditThreshold={() => handleEditThreshold("Butter", butterThreshold)}
+          productType="Butter"
           resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
         />
 
@@ -145,6 +146,7 @@ const Simulation = () => {
           threshold={eggThreshold}
           showSettings={!automaticBuying}
           onEditThreshold={() => handleEditThreshold("Eggs", eggThreshold)}
+          productType="Eggs"
           resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
         />
       </div>
