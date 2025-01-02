@@ -7,10 +7,14 @@ import "./Simulation.css";
 import { sendProductUpdates } from "../services/modelService";
 
 const Simulation = () => {
-  const [milkVolume, setMilkVolume] = useState(1000); 
-  const [butterMass, setButterMass] = useState(500); 
-  const [eggCount, setEggCount] = useState(30); 
-  const [bestProduct, setBestProduct] = useState(null); // State to store the best product
+  const [milkVolume, setMilkVolume] = useState(1000); // Initial milk volume in mL
+  const [butterMass, setButterMass] = useState(500); // Initial butter mass in grams
+  const [eggCount, setEggCount] = useState(30); // Initial egg count
+
+  // Separate recommended products for each product type
+  const [recommendedMilk, setRecommendedMilk] = useState(null);
+  const [recommendedButter, setRecommendedButter] = useState(null);
+  const [recommendedEgg, setRecommendedEgg] = useState(null);
 
   const handleConsume = async (productName, remainingQuantity) => {
     try {
@@ -19,10 +23,16 @@ const Simulation = () => {
         remainingQuantity: remainingQuantity,
       });
       console.log(`${productName} update sent successfully:`, response);
-  
-      // Directly access the best_product in the response object
+
+      // Update recommended products based on the consumed product
       if (response.best_product) {
-        setBestProduct(response.best_product);
+        if (productName === "Milk") {
+          setRecommendedMilk(response.best_product);
+        } else if (productName === "Butter") {
+          setRecommendedButter(response.best_product);
+        } else if (productName === "Eggs") {
+          setRecommendedEgg(response.best_product);
+        }
       } else {
         console.error("Best product not found in the response.");
       }
@@ -30,8 +40,6 @@ const Simulation = () => {
       console.error(`Error sending update for ${productName}:`, error);
     }
   };
-  
-  
 
   return (
     <div className="simulation-container">
@@ -49,6 +57,7 @@ const Simulation = () => {
             });
           }}
           label={`Milk Volume: ${milkVolume} mL`}
+          recommendedProduct={recommendedMilk} // Only pass recommendedMilk to Milk card
         />
 
         {/* Butter */}
@@ -63,6 +72,7 @@ const Simulation = () => {
             });
           }}
           label={`Butter Mass: ${butterMass} g`}
+          recommendedProduct={recommendedButter} // Only pass recommendedButter to Butter card
         />
 
         {/* Eggs */}
@@ -77,27 +87,9 @@ const Simulation = () => {
             });
           }}
           label={`Eggs Remaining: ${eggCount}`}
+          recommendedProduct={recommendedEgg} // Only pass recommendedEgg to Egg card
         />
       </div>
-
-      {/* If there's a best product, display it */}
-      {bestProduct && (
-        <ReusableCard
-          title="Best Product to Buy"
-          content={
-            <div>
-              <img src={bestProduct.thumbnail} alt={bestProduct.title} />
-              <p>{bestProduct.title}</p>
-              <p>{bestProduct.description}</p>
-              <p>Price: ${bestProduct.price}</p>
-              <button onClick={() => alert("Confirmed to buy! Proceeding...")}>
-                Confirm to Buy
-              </button>
-            </div>
-          }
-          label="Product Recommendation"
-        />
-      )}
     </div>
   );
 };

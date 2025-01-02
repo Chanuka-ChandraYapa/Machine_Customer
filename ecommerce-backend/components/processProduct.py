@@ -45,6 +45,11 @@ def ProcessProduct(name, quantity):
             best_product = ranked_products[0]  # Select the top-ranked product
             print(f"Best product to buy: {best_product}")
             
+            # replace best_product with the actual product by searching the product in the products by 'id'.
+            for product in products:
+                if product["id"] == best_product["id"]:
+                    best_product = product
+                    break
             return best_product  # Return the best product to the frontend
         else:
             print(f"No products found for {name}.")
