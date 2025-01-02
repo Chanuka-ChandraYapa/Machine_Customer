@@ -1,131 +1,198 @@
+/* General Styles */
 .item {
-    text-align: center;
-    width: 200px;
-  }
-  
-  .consume-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .consume-button:hover {
-    background-color: #0056b3;
-  }
-  
-  p {
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
-  /* Liquid */
-  .liquid-container {
-    width: 120px;
-    height: 300px;
-    border: 2px solid #000;
-    background-color: #1b1d5c;
-    position: relative;
-    margin: 10px auto;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  
-  .lid {
-    width: 50%;
-    height: 10%;
-    background-color: #007bff;
-    border-radius: 15px 15px 0 0;
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    border: 2px solid #000;
-  }
-  
-  .bottle {
-    width: 90%;
-    height: 88%;
-    background-color: #cfd4d1;
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    z-index: 5;
-    border-radius: 40px 40px 10px 10px;
-    overflow: hidden;
-    border: 1% solid #000;
-  }
-  
-  .liquid-level {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: height 0.3s ease;
-    background-color: #f8f4f4;
-  }
-  
-  /* Solid */
-  .solid-container {
-    width: 120px;
-    height: 300px;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: flex-start;
-    border: 2px solid #000;
-    background-color: #1b1d5c;
-    margin: 10px auto;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .solid-block {
-    width: 90%;
-    background-color: #ffcc00;
-    border: 1px solid #000;
-    border-radius: 5px;
-    transition: height 0.3s ease;
-  }
-  
-  /* Individual */
-  .individual-container {
-    width: 120px;
-    height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    background-color: #1b1d5c;
-    border: 2px solid #000;
-    margin: 10px auto;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .individual-item {
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 50% 50% 60% 60%;
-    transition: all 0.3s ease;
-  }
-  
-  .buy-now-button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  .buy-now-button:hover {
-    background-color: #218838;
-  }
-  
+  text-align: center;
+  width: 250px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+}
+
+h2 {
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button Styles */
+.consume-button,
+.buy-now-button,
+.save-button,
+.cancel-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.consume-button:hover,
+.buy-now-button:hover,
+.save-button:hover,
+.cancel-button:hover {
+  background-color: #0056b3;
+}
+
+.buy-now-button {
+  background-color: #28a745;
+}
+
+.buy-now-button:hover {
+  background-color: #218838;
+}
+
+/* Liquid Container */
+.liquid-container {
+  width: 120px;
+  height: 300px;
+  border: 2px solid #1b1d5c;
+  background-color: #1b1d5c;
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.lid {
+  width: 50%;
+  height: 10%;
+  background-color: #007bff;
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.bottle {
+  width: 90%;
+  height: 88%;
+  background-color: #cfd4d1;
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  z-index: 5;
+  border-radius: 40px 40px 10px 10px;
+  overflow: hidden;
+  border: 1px solid #1b1d5c;
+}
+
+.liquid-level {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.3s ease;
+  background-color: #f8f4f4;
+}
+
+/* Solid Container */
+.solid-container {
+  width: 120px;
+  height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  border: 2px solid #1b1d5c;
+  background-color: #1b1d5c;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.solid-block {
+  width: 90%;
+  background-color: #ffcc00;
+  border: 1px solid #1b1d5c;
+  border-radius: 5px;
+  transition: height 0.3s ease;
+}
+
+/* Individual Container */
+.individual-container {
+  width: 120px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: #1b1d5c;
+  border: 2px solid #1b1d5c;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.individual-item {
+  background-color: #fff;
+  border: 2px solid #1b1d5c;
+  border-radius: 50% 50% 60% 60%;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+/* Threshold Editor */
+.threshold-editor {
+  background-color: #ffffff;
+  border: 2px solid #1b1d5c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.threshold-editor input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.threshold-editor button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.threshold-editor button:hover {
+  background-color: #0056b3;
+}
+
+/* Three-Dots Menu */
+.settings {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.three-dots {
+  font-size: 22px;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.three-dots:hover {
+  color: #0056b3;
+}
