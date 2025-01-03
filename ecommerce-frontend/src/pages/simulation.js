@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReusableCard from "../components/ReusableCard";
 import Liquid from "../components/Liquid";
 import Solid from "../components/Solid";
@@ -35,19 +35,22 @@ const Simulation = () => {
     if (milkVolume < milkThreshold) {
       newNotifications.push({
         type: "Milk",
-        message: "Milk is below the threshold. Please refill it.",
+        message:
+          "According to your past Consumption, milk stocks will ends within 2 days.",
       });
     }
     if (butterMass < butterThreshold) {
       newNotifications.push({
         type: "Butter",
-        message: "Butter is below the threshold. Please refill it.",
+        message:
+          "According to your past Consumption, Butter stocks will ends within 2 days.",
       });
     }
     if (eggCount < eggThreshold) {
       newNotifications.push({
         type: "Eggs",
-        message: "Eggs are running low. Please refill them.",
+        message:
+          "According to your past Consumption, Egg stocks will ends within 2 days.",
       });
     }
     setNotifications(newNotifications);
@@ -73,7 +76,6 @@ const Simulation = () => {
           setRecommendedEgg(response.best_product);
         }
       }
-      checkThresholds(); // Check thresholds after consumption
     } catch (error) {
       console.error(`Error sending update for ${productName}:`, error);
     }
@@ -99,6 +101,10 @@ const Simulation = () => {
     checkThresholds(); // Check thresholds after refill
   };
 
+  useEffect(() => {
+    checkThresholds();
+  }, [milkVolume, butterMass, eggCount]);
+
   return (
     <div className="simulation-container">
       <h1 className="title">Smart Refrigerator</h1>
@@ -110,7 +116,6 @@ const Simulation = () => {
         <FaBell size={24} className="bell-icon" color="#61dafb" />
         {notifications.length > 0 && <span className="notification-dot"></span>}
       </div>
-
       {/* Notification Modal */}
       {isModalOpen && (
         <NotificationModal
@@ -118,7 +123,6 @@ const Simulation = () => {
           onClose={() => setIsModalOpen(false)}
         />
       )}
-
       <div className="toggle-container">
         <label className="toggle-label">
           Enable Automatic Buying
@@ -130,7 +134,6 @@ const Simulation = () => {
           <span className="slider"></span>
         </label>
       </div>
-
       <div className="food-items">
         <ReusableCard
           title="Milk"
