@@ -146,6 +146,7 @@ const Simulation = () => {
           threshold={milkThreshold}
           productType="Milk"
           resetProduct={handleRefill}
+          onThresholdChange={setMilkThreshold}
         />
 
         <ReusableCard
@@ -160,6 +161,7 @@ const Simulation = () => {
           threshold={butterThreshold}
           productType="Butter"
           resetProduct={handleRefill}
+          onThresholdChange={setButterThreshold}
         />
 
         <ReusableCard
@@ -174,6 +176,7 @@ const Simulation = () => {
           threshold={eggThreshold}
           productType="Eggs"
           resetProduct={handleRefill}
+          onThresholdChange={setEggThreshold}
         />
       </div>
     </div>
