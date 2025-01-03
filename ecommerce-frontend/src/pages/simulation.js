@@ -3,6 +3,8 @@ import ReusableCard from "../components/ReusableCard";
 import Liquid from "../components/Liquid";
 import Solid from "../components/Solid";
 import Individual from "../components/Individual";
+import NotificationModal from "../components/NotificationModal";
+import { FaBell } from "react-icons/fa";
 import "./Simulation.css";
 import { sendProductUpdates } from "../services/modelService";
 
@@ -11,7 +13,7 @@ const Simulation = () => {
   const [butterMass, setButterMass] = useState(500); // Initial butter mass in grams
   const [eggCount, setEggCount] = useState(30); // Initial egg count
 
-  // Separate recommended products for each product type
+  // Recommended products
   const [recommendedMilk, setRecommendedMilk] = useState(null);
   const [recommendedButter, setRecommendedButter] = useState(null);
   const [recommendedEgg, setRecommendedEgg] = useState(null);
@@ -24,11 +26,32 @@ const Simulation = () => {
   // Automatic buying toggle
   const [automaticBuying, setAutomaticBuying] = useState(false);
 
-  // For threshold editing modal
-  const [editingThreshold, setEditingThreshold] = useState({
-    type: null,
-    value: null,
-  });
+  // For notifications
+  const [notifications, setNotifications] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const checkThresholds = () => {
+    const newNotifications = [];
+    if (milkVolume < milkThreshold) {
+      newNotifications.push({
+        type: "Milk",
+        message: "Milk is below the threshold. Please refill it.",
+      });
+    }
+    if (butterMass < butterThreshold) {
+      newNotifications.push({
+        type: "Butter",
+        message: "Butter is below the threshold. Please refill it.",
+      });
+    }
+    if (eggCount < eggThreshold) {
+      newNotifications.push({
+        type: "Eggs",
+        message: "Eggs are running low. Please refill them.",
+      });
+    }
+    setNotifications(newNotifications);
+  };
 
   const handleConsume = async (productName, remainingQuantity) => {
     try {
@@ -38,55 +61,64 @@ const Simulation = () => {
       });
       console.log(`${productName} update sent successfully:`, response);
 
-      // Update recommended products based on the consumed product
       if (response.best_product) {
-        if (productName === "Milk") {
+        if (productName === "Milk" && remainingQuantity < milkThreshold) {
           setRecommendedMilk(response.best_product);
-        } else if (productName === "Butter") {
+        } else if (
+          productName === "Butter" &&
+          remainingQuantity < butterThreshold
+        ) {
           setRecommendedButter(response.best_product);
-        } else if (productName === "Eggs") {
+        } else if (productName === "Eggs" && remainingQuantity < eggThreshold) {
           setRecommendedEgg(response.best_product);
         }
-      } else {
-        console.error("Best product not found in the response.");
       }
+      checkThresholds(); // Check thresholds after consumption
     } catch (error) {
       console.error(`Error sending update for ${productName}:`, error);
     }
   };
 
-  const handleEditThreshold = (type, value) => {
-    console.log("Editing Threshold:", { type, value });
-    setEditingThreshold({ type, value });
-  };
-
-  const handleSaveThreshold = () => {
-    const { type, value } = editingThreshold;
-    if (type === "Milk") setMilkThreshold(value);
-    if (type === "Butter") setButterThreshold(value);
-    if (type === "Eggs") setEggThreshold(value);
-    setEditingThreshold({ type: null, value: null }); // Close the editor
-  };
-
-  const resetProduct = (productType) => {
+  const handleRefill = (productType) => {
     switch (productType) {
       case "Milk":
         setMilkVolume(1000);
+        setRecommendedMilk(null); // Reset recommended product
         break;
       case "Butter":
         setButterMass(500);
+        setRecommendedButter(null); // Reset recommended product
         break;
       case "Eggs":
         setEggCount(30);
+        setRecommendedEgg(null); // Reset recommended product
         break;
       default:
         break;
     }
+    checkThresholds(); // Check thresholds after refill
   };
 
   return (
     <div className="simulation-container">
       <h1 className="title">Smart Refrigerator</h1>
+      {/* Notification Bell */}
+      <div
+        className="notification-bell-container"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <FaBell size={24} className="bell-icon" color="#61dafb" />
+        {notifications.length > 0 && <span className="notification-dot"></span>}
+      </div>
+
+      {/* Notification Modal */}
+      {isModalOpen && (
+        <NotificationModal
+          notifications={notifications}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+
       <div className="toggle-container">
         <label className="toggle-label">
           Enable Automatic Buying
@@ -98,8 +130,8 @@ const Simulation = () => {
           <span className="slider"></span>
         </label>
       </div>
+
       <div className="food-items">
-        {/* Milk */}
         <ReusableCard
           title="Milk"
           content={<Liquid volume={milkVolume} maxVolume={1000} />}
@@ -110,13 +142,10 @@ const Simulation = () => {
           label={`Milk Volume: ${milkVolume} mL`}
           recommendedProduct={recommendedMilk}
           threshold={milkThreshold}
-          showSettings={!automaticBuying}
-          onEditThreshold={() => handleEditThreshold("Milk", milkThreshold)}
           productType="Milk"
-          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
+          resetProduct={handleRefill}
         />
 
-        {/* Butter */}
         <ReusableCard
           title="Butter"
           content={<Solid mass={butterMass} maxMass={500} />}
@@ -127,13 +156,10 @@ const Simulation = () => {
           label={`Butter Mass: ${butterMass} g`}
           recommendedProduct={recommendedButter}
           threshold={butterThreshold}
-          showSettings={!automaticBuying}
-          onEditThreshold={() => handleEditThreshold("Butter", butterThreshold)}
           productType="Butter"
-          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
+          resetProduct={handleRefill}
         />
 
-        {/* Eggs */}
         <ReusableCard
           title="Eggs"
           content={<Individual count={eggCount} />}
@@ -144,40 +170,10 @@ const Simulation = () => {
           label={`Eggs Remaining: ${eggCount}`}
           recommendedProduct={recommendedEgg}
           threshold={eggThreshold}
-          showSettings={!automaticBuying}
-          onEditThreshold={() => handleEditThreshold("Eggs", eggThreshold)}
           productType="Eggs"
-          resetProduct={resetProduct} // Pass resetProduct function to ReusableCard
+          resetProduct={handleRefill}
         />
       </div>
-
-      {/* Threshold Editing Modal */}
-      {editingThreshold.type && (
-        <div className="threshold-modal">
-          <div className="modal-content">
-            <h2>Edit Threshold for {editingThreshold.type}</h2>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value={editingThreshold.value}
-              onChange={(e) =>
-                setEditingThreshold({
-                  ...editingThreshold,
-                  value: Number(e.target.value),
-                })
-              }
-            />
-            <p>Current Value: {editingThreshold.value}</p>
-            <button onClick={handleSaveThreshold}>Save</button>
-            <button
-              onClick={() => setEditingThreshold({ type: null, value: null })}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
