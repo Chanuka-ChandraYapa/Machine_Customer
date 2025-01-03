@@ -98,7 +98,6 @@ const Simulation = () => {
       default:
         break;
     }
-    checkThresholds(); // Check thresholds after refill
   };
 
   useEffect(() => {

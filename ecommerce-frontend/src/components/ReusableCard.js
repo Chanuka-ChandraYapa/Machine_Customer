@@ -19,7 +19,7 @@ const ReusableCard = ({
 
   const handleBuyNow = () => {
     resetProduct(productType);
-    setShowRecommendation(false);
+    // setShowRecommendation(false);
   };
 
   const openThresholdEditor = () => {
