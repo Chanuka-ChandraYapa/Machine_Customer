@@ -10,6 +10,7 @@ import {
   Box,
   TextField,
   Button,
+  Paper,
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import ProductModal from "../components/productModal";
@@ -124,34 +125,68 @@ const Product = () => {
 
   return (
     <>
-      <Box sx={{ p: 4 }}>
-        <Typography variant="h4" textAlign="center" gutterBottom>
+      <Box sx={{ p: 4, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
+        <Typography variant="h4" textAlign="center" gutterBottom sx={{ fontWeight: 'bold' }}>
           Product List
         </Typography>
 
         {/* Search Bar */}
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mb: 4,
+            gap: 2,
+          }}
+        >
           <TextField
             label="Search Products"
             variant="outlined"
             value={searchQuery}
             onChange={handleSearchChange}
-            sx={{ mr: 2 }}
+            sx={{
+              width: "300px",
+              borderRadius: 1,
+              backgroundColor: "white",
+              "& .MuiOutlinedInput-root": {
+                borderRadius: 2,
+              },
+            }}
           />
-          <Button variant="contained" onClick={handleSearch} sx={{ mr: 2 }}>
+          <Button
+            variant="contained"
+            onClick={handleSearch}
+            sx={{
+              backgroundColor: "#1976d2",
+              color: "white",
+              "&:hover": { backgroundColor: "#1565c0" },
+              paddingX: 4,
+            }}
+          >
             Search
           </Button>
-          <Button variant="contained" onClick={handleRank}>
+          <Button
+            variant="contained"
+            onClick={handleRank}
+            sx={{
+              backgroundColor: "#388e3c",
+              color: "white",
+              "&:hover": { backgroundColor: "#2c6f32" },
+              paddingX: 4,
+            }}
+          >
             Rank
           </Button>
         </Box>
 
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="center" spacing={3}>
           {products.map((product) => (
-            <Grid item key={product.id}>
-              <div onClick={() => handleOpenModal(product)}>
-                <ProductCard product={product} />
-              </div>
+            <Grid item xs={10} sm={5} md={3} key={product.id}>
+              <Paper elevation={3} sx={{ padding: 2, borderRadius: 5 }}>
+                <div onClick={() => handleOpenModal(product)}>
+                  <ProductCard product={product} />
+                </div>
+              </Paper>
             </Grid>
           ))}
         </Grid>
