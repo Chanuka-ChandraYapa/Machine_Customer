@@ -23,8 +23,8 @@ const Simulation = () => {
   const [butterThreshold, setButterThreshold] = useState(100);
   const [eggThreshold, setEggThreshold] = useState(5);
 
-  // Automatic buying toggle
-  const [automaticBuying, setAutomaticBuying] = useState(false);
+  // Automatic Threshold toggle
+  const [automaticThreshold, setAutomaticThreshold] = useState(false);
 
   // For notifications
   const [notifications, setNotifications] = useState([]);
@@ -124,11 +124,11 @@ const Simulation = () => {
       )}
       <div className="toggle-container">
         <label className="toggle-label">
-          Enable Automatic Buying
+          Enable Automatic Threshold
           <input
             type="checkbox"
-            checked={automaticBuying}
-            onChange={(e) => setAutomaticBuying(e.target.checked)}
+            checked={automaticThreshold}
+            onChange={(e) => setAutomaticThreshold(e.target.checked)}
           />
           <span className="slider"></span>
         </label>
