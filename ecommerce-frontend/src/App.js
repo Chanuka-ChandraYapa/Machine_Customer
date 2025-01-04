@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
+import { AppBar, Toolbar, Button, Box, Container } from "@mui/material";
 import Home from "./pages/Home";
 import Product from "./pages/Products";
 import Form from "./pages/Form";
@@ -12,41 +12,111 @@ import LLM from "./pages/LLM";
 const App = () => {
   return (
     <Router>
-      <AppBar position="static">
-        <Toolbar>
-          <Button color="inherit" component={Link} to="/">
-            Home
-          </Button>
-          <Button color="inherit" component={Link} to="/products">
-            Products
-          </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
-          </Button>
-          <Button color="inherit" component={Link} to="/contact">
-            Contact
-          </Button>
-          <Button color="inherit" component={Link} to="/form">
-            Requirements
-          </Button>
-          <Button color="inherit" component={Link} to="/llm">
-            LLM
-          </Button>
-          <Button color="inherit" component={Link} to="/simulation">
-            Simulation
-          </Button>
-        </Toolbar>
+      {/* AppBar with background color */}
+      <AppBar position="sticky" sx={{ backgroundColor: "#0d1b32", boxShadow: 3 }}>
+        <Container maxWidth="lg">
+          <Toolbar sx={{ justifyContent: "space-between" }}>
+            {/* Left section: Logo or Brand name */}
+            <Button color="inherit" component={Link} to="/" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+              E-Shop
+            </Button>
+
+            {/* Right section: Navigation links */}
+            <Box sx={{ display: "flex", gap: 2 }}>
+              {/* Using NavLink for active link styles */}
+              <NavLink
+                to="/"
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}
+              >
+                <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                  Home
+                </Button>
+              </NavLink>
+
+              <NavLink
+                to="/products"
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}
+              >
+                <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                  Products
+                </Button>
+              </NavLink>
+
+              <NavLink
+                to="/form"
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}
+              >
+                <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                  Requirements
+                </Button>
+              </NavLink>
+
+              <NavLink
+                to="/simulation"
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}
+              >
+                <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                  Simulation
+                </Button>
+              </NavLink>
+
+              <NavLink
+                to="/llm"
+                style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}
+              >
+                <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                  LLM
+                </Button>
+              </NavLink>
+
+              {/* Uncomment when pages are available */}
+              {/* <NavLink to="/about" style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}>
+                  <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                    About
+                  </Button>
+                </NavLink>
+
+                <NavLink to="/contact" style={({ isActive }) => ({
+                  textDecoration: "none",
+                  color: isActive ? "#ff9800" : "inherit", // Highlight active link
+                })}>
+                  <Button color="inherit" sx={{ "&:hover": { backgroundColor: "#333" } }}>
+                    Contact
+                  </Button>
+                </NavLink> */}
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
-      <Box sx={{ mt: 4 }}>
+
+      {/* Main content container with elevation */}
+      <Box sx={{ mt: 0 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Product />} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} /> */}
           <Route path="/form" element={<Form />} />
-          <Route path="/products/:products" element={<Product />} />
           <Route path="/simulation" element={<Simulation />} />
           <Route path="/llm" element={<LLM />} />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} /> */}
         </Routes>
       </Box>
     </Router>
