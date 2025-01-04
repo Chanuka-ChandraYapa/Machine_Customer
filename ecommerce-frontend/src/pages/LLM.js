@@ -113,7 +113,7 @@ const LLM = () => {
             }));
 
             // Fetch and set products based on category
-            if (category) {
+            if (product_name) {
                 console.log("Fetching products for category:", product_name);
                 const fetchedProducts = await searchProducts(product_name);
                 console.log("Fetched Products:", fetchedProducts);
@@ -159,7 +159,7 @@ const LLM = () => {
                 </Box>
 
                 {/* Display extracted product details */}
-                {formData.category && (
+                {formData.productName && (
                     <Box mt={3}>
                         <Typography variant="h6" gutterBottom>
                             Extracted Product Details
