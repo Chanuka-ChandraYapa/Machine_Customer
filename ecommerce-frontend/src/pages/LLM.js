@@ -6,6 +6,8 @@ import {
     TextField,
     Grid,
     Divider,
+    CircularProgress,
+    Paper,
 } from "@mui/material";
 import { getProductList } from "../services/apiService";
 import { useNavigate } from "react-router-dom";
@@ -54,15 +56,12 @@ const LLM = () => {
     // Function to submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Data Submitted:", formData);
         try {
             const data = await sendProducts(products);
-            // Remove the products not in the data by checking their IDs
             const filteredProducts = products.filter((product) =>
                 data.some((p) => p.id === product.id)
             );
 
-            // Sort the filtered products based on the rank in the data array
             const sortedProducts = filteredProducts.sort((a, b) => {
                 const rankA = data.find((p) => p.id === a.id)?.rank;
                 const rankB = data.find((p) => p.id === b.id)?.rank;
@@ -75,7 +74,6 @@ const LLM = () => {
                 JSON.stringify(sortedProducts)
             );
             navigate(`/products?data=${encodedProducts}`);
-            console.log("Processed Products:", sortedProducts);
         } catch (error) {
             console.error(error.message);
         }
@@ -86,9 +84,6 @@ const LLM = () => {
         setLoading(true);
         try {
             const response = await getProductList(description);
-            console.log(response);
-
-            // Assuming response contains 'category', 'brand', and 'products' for extraction
             const {
                 category,
                 brand,
@@ -100,7 +95,6 @@ const LLM = () => {
                 quantity,
             } = response;
 
-            // Extracting relevant data
             setFormData((prevData) => ({
                 ...prevData,
                 category,
@@ -112,11 +106,8 @@ const LLM = () => {
                 minRating: minimum_rating,
             }));
 
-            // Fetch and set products based on category
             if (product_name) {
-                console.log("Fetching products for category:", product_name);
                 const fetchedProducts = await searchProducts(product_name);
-                console.log("Fetched Products:", fetchedProducts);
                 setProducts(fetchedProducts);
             }
         } catch (error) {
@@ -127,24 +118,19 @@ const LLM = () => {
     };
 
     return (
-        <div className="product-container">
-            <Box
-                sx={{
-                    maxWidth: 600,
-                    margin: "0 auto",
-                    padding: 4,
-                    boxShadow: 3,
-                    borderRadius: 2,
-                }}
-            >
-                <Typography variant="h4" gutterBottom>
-                    LLM Product Inquiry
+        <Box className="product-container" py={4}>
+            <Paper elevation={3} sx={{ maxWidth: 600, margin: "0 auto", padding: 4 }}>
+                <Typography variant="h4" align="center" gutterBottom>
+                    Tell me what you need
                 </Typography>
-                <textarea
-                    className="description-input"
-                    placeholder="Enter product description..."
+                <TextField
+                    label="Enter product description"
+                    multiline
+                    rows={4}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    fullWidth
+                    variant="outlined"
                 />
                 <Box mt={3}>
                     <Button
@@ -154,13 +140,12 @@ const LLM = () => {
                         disabled={loading || !description.trim()}
                         fullWidth
                     >
-                        {loading ? "Processing..." : "Get Product Details"}
+                        {loading ? <CircularProgress size={24} /> : "Get Product Details"}
                     </Button>
                 </Box>
 
-                {/* Display extracted product details */}
                 {formData.productName && (
-                    <Box mt={3}>
+                    <Box mt={4}>
                         <Typography variant="h6" gutterBottom>
                             Extracted Product Details
                         </Typography>
@@ -205,7 +190,6 @@ const LLM = () => {
                     </Box>
                 )}
 
-                {/* Adding form submission button */}
                 <Box mt={3}>
                     <Button
                         variant="contained"
@@ -217,8 +201,8 @@ const LLM = () => {
                         Submit Form
                     </Button>
                 </Box>
-            </Box>
-        </div>
+            </Paper>
+        </Box>
     );
 };
 
