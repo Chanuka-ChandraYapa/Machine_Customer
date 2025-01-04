@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Product from "./pages/Products";
 import Form from "./pages/Form";
 import Simulation from "./pages/simulation";
+import LLM from "./pages/LLM";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -28,6 +29,9 @@ const App = () => {
           <Button color="inherit" component={Link} to="/form">
             Requirements
           </Button>
+          <Button color="inherit" component={Link} to="/llm">
+            LLM
+          </Button>
           <Button color="inherit" component={Link} to="/simulation">
             Simulation
           </Button>
@@ -42,6 +46,7 @@ const App = () => {
           <Route path="/form" element={<Form />} />
           <Route path="/products/:products" element={<Product />} />
           <Route path="/simulation" element={<Simulation />} />
+          <Route path="/llm" element={<LLM />} />
         </Routes>
       </Box>
     </Router>

@@ -34,7 +34,7 @@ const Form = () => {
     brand: "",
     productName: "",
     quantity: 1,
-    minPrice: 99,
+    minPrice: 1,
     maxPrice: 999,
     discounts: false,
     secondhand: false,
@@ -81,6 +81,7 @@ const Form = () => {
   const fetchProducts = async (category) => {
     try {
       const response = await fetchProductsByCategory(category);
+      //print products in console
       setProducts(response);
       const productBrands = extractBrands(response);
       setBrands(productBrands);
@@ -90,6 +91,18 @@ const Form = () => {
         `Error fetching products in category "${category}":`,
         error.message
       );
+    }
+  };
+
+  const filterProductByName = async (productName) => {
+    try {
+      // Filter products based on whether their title includes the entered product name (case insensitive)
+      const filteredProducts = products.filter((product) =>
+        product.title.toLowerCase().includes(productName.toLowerCase())
+      );
+      setProducts(filteredProducts);
+    } catch (error) {
+      console.error("Error filtering products by name:", error.message);
     }
   };
 
@@ -104,6 +117,10 @@ const Form = () => {
       fetchProducts(value);
       setFormData((prevData) => ({ ...prevData, brand: "" })); // Reset brand selection
       setIsBrandFieldActive(false);
+    }
+
+    if (name === "productName"){
+      filterProductByName(value);
     }
   };
 
