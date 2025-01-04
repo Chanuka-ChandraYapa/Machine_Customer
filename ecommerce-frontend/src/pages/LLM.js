@@ -10,7 +10,7 @@ import {
 import { getProductList } from "../services/apiService";
 import { useNavigate } from "react-router-dom";
 import { sendProducts, sendRequirements } from "../services/modelService";
-import { fetchProductsByCategory } from "../services/apiService";
+import { searchProducts } from "../services/apiService";
 
 const LLM = () => {
     const [description, setDescription] = useState("");
@@ -56,7 +56,6 @@ const LLM = () => {
         e.preventDefault();
         console.log("Form Data Submitted:", formData);
         try {
-            const req = await sendRequirements(formData);
             const data = await sendProducts(products);
             // Remove the products not in the data by checking their IDs
             const filteredProducts = products.filter((product) =>
@@ -116,7 +115,7 @@ const LLM = () => {
             // Fetch and set products based on category
             if (category) {
                 console.log("Fetching products for category:", product_name);
-                const fetchedProducts = await fetchProductsByCategory("groceries");
+                const fetchedProducts = await searchProducts(product_name);
                 console.log("Fetched Products:", fetchedProducts);
                 setProducts(fetchedProducts);
             }
