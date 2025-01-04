@@ -4,7 +4,12 @@ import { sendProducts } from "./modelService";
 // API Client
 const apiClient = axios.create({
   // baseURL: "https://dummyjson.com"
-  baseURL:"http://localhost:5001",
+  baseURL: "http://localhost:5001",
+  timeout: 5000,
+});
+
+const backendClient = axios.create({
+  baseURL: "http://localhost:5000",
   timeout: 5000,
 });
 
@@ -73,3 +78,21 @@ export const extractBrands = (products) => {
     throw new Error("Failed to extract brands");
   }
 };
+
+export const getProductList = async (message) => {
+  try {
+    const response = await backendClient.post("/getProductList", {
+      prompt: message,
+      temperature: 0.7,
+      max_tokens: 150,
+      top_p: 1,
+    });
+    console.log("Products:", response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products:", error.message);
+    throw new Error("Failed to fetch products");
+  }
+};
+
+

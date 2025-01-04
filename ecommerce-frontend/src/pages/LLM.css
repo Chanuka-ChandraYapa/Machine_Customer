@@ -1,0 +1,92 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container for the whole page */
+.product-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Heading */
+.product-container .MuiTypography-root {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Textarea styling (making it bigger) */
+.description-input {
+    width: 100%;
+    height: 200px;
+    /* Increased height for a bigger text area */
+    padding: 15px;
+    /* More padding for better comfort */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    /* Bigger font size */
+    font-family: 'Arial', sans-serif;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.description-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Button Styling */
+.MuiButton-root {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 6px;
+    text-transform: none;
+}
+
+.MuiButton-root:disabled {
+    background-color: #ddd;
+}
+
+.MuiButton-root:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Button container spacing */
+.MuiBox-root {
+    margin-top: 20px;
+}
+
+/* Layout for each button */
+button {
+    width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .product-container {
+        padding: 20px;
+    }
+
+    .description-input {
+        height: 180px;
+        /* Adjust height slightly for smaller screens */
+    }
+}
