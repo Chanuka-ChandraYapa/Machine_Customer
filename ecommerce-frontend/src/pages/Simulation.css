@@ -1,47 +1,189 @@
 .simulation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  .food-items {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next row */
-    gap: 20px; /* Space between items */
-    justify-content: center; /* Center items horizontally */
-    align-items: flex-start; /* Align items to the top */
-    max-width: 80%; /* Optional: Limit container width */
-  }
-  
-  .item {
-    width: 200px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  
-  .consume-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .consume-button:hover {
-    background-color: #0056b3;
-  }
-  
-  p {
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #e0f7fa, #e0eafc);
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #004d40;
+}
+
+.toggle-label input {
+  display: none;
+}
+
+.slider {
+  width: 40px;
+  height: 20px;
+  margin-left: 10px;
+  background-color: #ccc;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #00796b;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.food-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #004d40;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.threshold-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #00796b;
+}
+
+.modal-content input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #004d40;
+}
+
+.modal-content button:last-child {
+  background-color: #f44336;
+}
+
+.modal-content button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+.notification-bell-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}

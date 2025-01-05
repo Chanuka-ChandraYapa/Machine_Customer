@@ -137,12 +137,16 @@ const ProductModal = ({ open, handleClose, product }) => {
           <Typography variant="body2">
             Barcode: {product.meta.barcode}
           </Typography>
-          <Typography variant="body2">Weight: {product.weight}g</Typography>
+          {product.volume && (<Typography variant="body2">Volume: {product.volume}ml</Typography> )}
+          {!product.volume && product.weight && (<Typography variant="body2">Weight: {product.weight}g</Typography>)}
+          {product.dimensions && (
           <Typography variant="body2">
             Dimensions:{" "}
             {`${product.dimensions.width} x ${product.dimensions.height} x ${product.dimensions.depth}`}{" "}
             cm
           </Typography>
+        )}
+
         </Stack>
 
         <Divider sx={{ my: 2 }} />

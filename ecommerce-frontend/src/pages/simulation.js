@@ -1,162 +1,182 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReusableCard from "../components/ReusableCard";
 import Liquid from "../components/Liquid";
 import Solid from "../components/Solid";
 import Individual from "../components/Individual";
+import NotificationModal from "../components/NotificationModal";
+import { FaBell } from "react-icons/fa";
 import "./Simulation.css";
 import { sendProductUpdates } from "../services/modelService";
 
 const Simulation = () => {
   const [milkVolume, setMilkVolume] = useState(1000); // Initial milk volume in mL
   const [butterMass, setButterMass] = useState(500); // Initial butter mass in grams
-  const [eggCount, setEggCount] = useState(30); // Initial egg count
+  const [eggCount, setEggCount] = useState(12); // Initial egg count
 
-  // Separate recommended products for each product type
+  // Recommended products
   const [recommendedMilk, setRecommendedMilk] = useState(null);
   const [recommendedButter, setRecommendedButter] = useState(null);
   const [recommendedEgg, setRecommendedEgg] = useState(null);
 
-  // Track whether the backend has been called for each product
-  const [hasCalledBackendMilk, setHasCalledBackendMilk] = useState(false);
-  const [hasCalledBackendButter, setHasCalledBackendButter] = useState(false);
-  const [hasCalledBackendEgg, setHasCalledBackendEgg] = useState(false);
+  // Thresholds
+  const [milkThreshold, setMilkThreshold] = useState(200);
+  const [butterThreshold, setButterThreshold] = useState(100);
+  const [eggThreshold, setEggThreshold] = useState(5);
 
-  // Generic function to send product updates to the backend
+  // Automatic Threshold toggle
+  const [automaticThreshold, setAutomaticThreshold] = useState(false);
+
+  // For notifications
+  const [notifications, setNotifications] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const checkThresholds = () => {
+    const newNotifications = [];
+    if (milkVolume < milkThreshold) {
+      newNotifications.push({
+        type: "Milk",
+        message:
+          "According to your past Consumption, milk stocks will ends within 2 days.",
+      });
+    }
+    if (butterMass < butterThreshold) {
+      newNotifications.push({
+        type: "Butter",
+        message:
+          "According to your past Consumption, Butter stocks will ends within 2 days.",
+      });
+    }
+    if (eggCount < eggThreshold) {
+      newNotifications.push({
+        type: "Eggs",
+        message:
+          "According to your past Consumption, Egg stocks will ends within 2 days.",
+      });
+    }
+    setNotifications(newNotifications);
+  };
+
   const handleConsume = async (productName, remainingQuantity) => {
     try {
       const response = await sendProductUpdates({
-        productName,
-        remainingQuantity,
+        productName: productName,
+        remainingQuantity: remainingQuantity,
       });
       console.log(`${productName} update sent successfully:`, response);
 
       if (response.best_product) {
-        if (productName === "Milk") setRecommendedMilk(response.best_product);
-        else if (productName === "Butter")
+        if (productName === "Milk" && remainingQuantity < milkThreshold) {
+          setRecommendedMilk(response.best_product);
+        } else if (
+          productName === "Butter" &&
+          remainingQuantity < butterThreshold
+        ) {
           setRecommendedButter(response.best_product);
-        else if (productName === "Eggs")
+        } else if (productName === "Eggs" && remainingQuantity < eggThreshold) {
           setRecommendedEgg(response.best_product);
+        }
       }
     } catch (error) {
       console.error(`Error sending update for ${productName}:`, error);
     }
   };
 
-  // Milk consume logic
-  const handleMilkConsume = () => {
-    setMilkVolume((prev) => {
-      const newVolume = prev > 100 ? prev - 100 : 0;
-
-      // Call backend when volume < 500 and no recent call
-      if (newVolume < 500 && !hasCalledBackendMilk) {
-        setHasCalledBackendMilk(true);
-        handleConsume("Milk", newVolume);
-      }
-
-      // Reset flag when volume goes back above 500
-      if (newVolume >= 500) {
-        setHasCalledBackendMilk(false);
-      }
-
-      return newVolume;
-    });
-  };
-
-  // Butter consume logic
-  const handleButterConsume = () => {
-    setButterMass((prev) => {
-      const newMass = prev > 50 ? prev - 50 : 0;
-
-      // Call backend when mass < 250 and no recent call
-      if (newMass < 250 && !hasCalledBackendButter) {
-        setHasCalledBackendButter(true);
-        handleConsume("Butter", newMass);
-      }
-
-      // Reset flag when mass goes back above 250
-      if (newMass >= 250) {
-        setHasCalledBackendButter(false);
-      }
-
-      return newMass;
-    });
-  };
-
-  // Eggs consume logic
-  const handleEggConsume = () => {
-    setEggCount((prev) => {
-      const newCount = prev > 0 ? prev - 1 : 0;
-
-      // Call backend when count < 10 and no recent call
-      if (newCount < 10 && !hasCalledBackendEgg) {
-        setHasCalledBackendEgg(true);
-        handleConsume("Eggs", newCount);
-      }
-
-      // Reset flag when count goes back above 10
-      if (newCount >= 10) {
-        setHasCalledBackendEgg(false);
-      }
-
-      return newCount;
-    });
-  };
-
-  // Reset logic
-  const resetProduct = (productType) => {
+  const handleRefill = (productType) => {
     switch (productType) {
       case "Milk":
         setMilkVolume(1000);
-        setHasCalledBackendMilk(false);
+        setRecommendedMilk(null); // Reset recommended product
         break;
       case "Butter":
         setButterMass(500);
-        setHasCalledBackendButter(false);
+        setRecommendedButter(null); // Reset recommended product
         break;
       case "Eggs":
-        setEggCount(30);
-        setHasCalledBackendEgg(false);
+        setEggCount(12);
+        setRecommendedEgg(null); // Reset recommended product
         break;
       default:
         break;
     }
   };
 
+  useEffect(() => {
+    checkThresholds();
+  }, [milkVolume, butterMass, eggCount]);
+
   return (
     <div className="simulation-container">
-      <h1>Food Simulation</h1>
+      <h1 className="title">Smart Refrigerator</h1>
+      {/* Notification Bell */}
+      <div
+        className="notification-bell-container"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <FaBell size={24} className="bell-icon" color="#61dafb" />
+        {notifications.length > 0 && <span className="notification-dot"></span>}
+      </div>
+      {/* Notification Modal */}
+      {isModalOpen && (
+        <NotificationModal
+          notifications={notifications}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+      <div className="toggle-container">
+        <label className="toggle-label">
+          Enable Automatic Threshold
+          <input
+            type="checkbox"
+            checked={automaticThreshold}
+            onChange={(e) => setAutomaticThreshold(e.target.checked)}
+          />
+          <span className="slider"></span>
+        </label>
+      </div>
       <div className="food-items">
-        {/* Milk */}
-        <ReusableCard
-          title="Milk"
-          content={<Liquid volume={milkVolume} maxVolume={1000} />}
-          onConsume={handleMilkConsume}
-          label={`Milk Volume: ${milkVolume} mL`}
-          recommendedProduct={recommendedMilk}
-          productType="Milk"
-          resetProduct={resetProduct}
-        />
-
-        {/* Butter */}
-        <ReusableCard
-          title="Butter"
-          content={<Solid mass={butterMass} maxMass={500} />}
-          onConsume={handleButterConsume}
-          label={`Butter Mass: ${butterMass} g`}
-          recommendedProduct={recommendedButter}
-          productType="Butter"
-          resetProduct={resetProduct}
-        />
-
-        {/* Eggs */}
+                
         <ReusableCard
           title="Eggs"
           content={<Individual count={eggCount} />}
-          onConsume={handleEggConsume}
+          onConsume={() => {
+            setEggCount((prev) => Math.max(0, prev - 1));
+            handleConsume("Eggs", eggCount - 1);
+          }}
           label={`Eggs Remaining: ${eggCount}`}
           recommendedProduct={recommendedEgg}
+          threshold={eggThreshold}
           productType="Eggs"
-          resetProduct={resetProduct}
+          resetProduct={handleRefill}
+          onThresholdChange={setEggThreshold}
+        />
+        <ReusableCard
+          title="Butter"
+          content={<Solid mass={butterMass} maxMass={500} />}
+          onConsume={() => {
+            setButterMass((prev) => Math.max(0, prev - 50));
+            handleConsume("Butter", butterMass - 50);
+          }}
+          label={`Butter Mass: ${butterMass} g`}
+          recommendedProduct={recommendedButter}
+          threshold={butterThreshold}
+          productType="Butter"
+          resetProduct={handleRefill}
+          onThresholdChange={setButterThreshold}
+        />
+
+<ReusableCard
+          title="Milk"
+          content={<Liquid volume={milkVolume} maxVolume={1000} />}
+          onConsume={() => {
+            setMilkVolume((prev) => Math.max(0, prev - 100));
+            handleConsume("Milk", milkVolume - 100);
+          }}
+          label={`Milk Volume: ${milkVolume} mL`}
+          recommendedProduct={recommendedMilk}
+          threshold={milkThreshold}
+          productType="Milk"
+          resetProduct={handleRefill}
+          onThresholdChange={setMilkThreshold}
         />
       </div>
     </div>
