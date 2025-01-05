@@ -1,8 +1,17 @@
-# SmartCart: Automated Grocery Management System
+# Smart Cart: Next-Generation E-Commerce with Machine Customers
 
-This project is a smart, automated solution to manage household groceries efficiently using a React frontend and two Flask backends. Below are the instructions to set up and run the project.
+**Smart Cart** is a groundbreaking platform designed to redefine the e-commerce experience with the power of AI. By introducing the concept of "machine customers," this project aims to enable automated AI agents to shop on behalf of users. These intelligent agents autonomously evaluate products, compare deals, and make data-driven purchasing decisions, mimicking human shopping behavior efficiently and intelligently.  
 
 ---
+
+## ✨ Features
+- **Machine Customers**: AI-powered agents that shop on behalf of users based on predefined preferences.
+- **Product Evaluation**: Automated analysis and comparison of products across platforms.
+- **Generative AI Integration**: Advanced decision-making using state-of-the-art AI technologies.
+- **Enhanced Shopping Experience**: Personalized, efficient, and user-centric automation.
+
+---
+
 
 ## Table of Contents  
 1. [Prerequisites](#prerequisites)  
