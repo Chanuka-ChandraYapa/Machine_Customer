@@ -61,6 +61,10 @@ Ensure you have the following installed on your system:
    ```bash
    pip install -r requirements.txt
 
+4. Update the GROQ_API key in below path in line 9.
+   ```bash
+   ecommerce-backend/routes/getProductList.py
+   
 4. Run the Flask server:
    ```bash
    python app.py
