@@ -6,7 +6,7 @@ import json
 getProductList_bp = Blueprint('getProductList', __name__)
 
 # Initialize the Groq client with your API key
-client = Groq(api_key="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")
+client = Groq(api_key="GROQ_API")
 
 @getProductList_bp.route('/getProductList', methods=['POST'])
 def get_product_list():
