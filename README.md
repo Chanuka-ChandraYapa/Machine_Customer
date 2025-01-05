@@ -78,6 +78,3 @@ Ensure you have the following installed on your system:
 Access the application in your web browser at:
   ```bash
   http://localhost:3000```
-
-
-   
