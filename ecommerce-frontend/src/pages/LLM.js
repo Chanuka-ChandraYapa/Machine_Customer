@@ -119,8 +119,8 @@ const LLM = () => {
 
     return (
         <Box className="product-container" py={4}>
-            <Paper elevation={3} sx={{ maxWidth: 600, margin: "0 auto", padding: 4 }}>
-                <Typography variant="h4" align="center" gutterBottom>
+            <Paper elevation={3} sx={{ maxWidth: 600, margin: "0 auto", padding: 4,  background: "linear-gradient(135deg, #e0f7fa, #e0eafc)" }}>
+                <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: "bold", color: "#00796b" }}>
                     Tell me what you need
                 </Typography>
                 <TextField
@@ -131,6 +131,7 @@ const LLM = () => {
                     onChange={(e) => setDescription(e.target.value)}
                     fullWidth
                     variant="outlined"
+                    sx={{ backgroundColor: "#ffffff" }}
                 />
                 <Box mt={3}>
                     <Button

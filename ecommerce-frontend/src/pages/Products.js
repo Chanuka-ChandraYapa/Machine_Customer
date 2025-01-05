@@ -178,11 +178,11 @@ const Product = () => {
             Rank
           </Button>
         </Box>
-
-        <Grid container justifyContent="center" spacing={3}>
+        
+        <Grid container justifyContent="center" spacing={3} >
           {products.map((product) => (
-            <Grid item xs={10} sm={5} md={3} key={product.id}>
-              <Paper elevation={3} sx={{ padding: 2, borderRadius: 5 }}>
+            <Grid item xs={10} sm={5} md={3} key={product.id} >
+              <Paper elevation={3} sx={{ padding: 2, borderRadius: 5, background: "linear-gradient(135deg, #e0f7fa, #e0eafc)" }}>
                 <div onClick={() => handleOpenModal(product)}>
                   <ProductCard product={product} />
                 </div>

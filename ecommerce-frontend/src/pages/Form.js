@@ -161,14 +161,17 @@ const Form = () => {
     <Box
       sx={{
         maxWidth: 600,
-        margin: "0 auto",
+        margin: "auto",
+        mt: 5,
         padding: 4,
         boxShadow: 3,
         borderRadius: 2,
+        background: "linear-gradient(135deg, #e0f7fa, #e0eafc)"
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        AI Shopping Agent - User Requirement Form
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#00796b" }}>
+        {/* AI Shopping Agent - User Requirement Form */}
+        User Requirement Form
       </Typography>
       <form onSubmit={handleSubmit}>
         {/* 2. Product Details */}

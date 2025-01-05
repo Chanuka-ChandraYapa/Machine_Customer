@@ -11,7 +11,7 @@ import { sendProductUpdates } from "../services/modelService";
 const Simulation = () => {
   const [milkVolume, setMilkVolume] = useState(1000); // Initial milk volume in mL
   const [butterMass, setButterMass] = useState(500); // Initial butter mass in grams
-  const [eggCount, setEggCount] = useState(30); // Initial egg count
+  const [eggCount, setEggCount] = useState(12); // Initial egg count
 
   // Recommended products
   const [recommendedMilk, setRecommendedMilk] = useState(null);
@@ -92,7 +92,7 @@ const Simulation = () => {
         setRecommendedButter(null); // Reset recommended product
         break;
       case "Eggs":
-        setEggCount(30);
+        setEggCount(12);
         setRecommendedEgg(null); // Reset recommended product
         break;
       default:
@@ -134,21 +134,21 @@ const Simulation = () => {
         </label>
       </div>
       <div className="food-items">
+                
         <ReusableCard
-          title="Milk"
-          content={<Liquid volume={milkVolume} maxVolume={1000} />}
+          title="Eggs"
+          content={<Individual count={eggCount} />}
           onConsume={() => {
-            setMilkVolume((prev) => Math.max(0, prev - 100));
-            handleConsume("Milk", milkVolume - 100);
+            setEggCount((prev) => Math.max(0, prev - 1));
+            handleConsume("Eggs", eggCount - 1);
           }}
-          label={`Milk Volume: ${milkVolume} mL`}
-          recommendedProduct={recommendedMilk}
-          threshold={milkThreshold}
-          productType="Milk"
+          label={`Eggs Remaining: ${eggCount}`}
+          recommendedProduct={recommendedEgg}
+          threshold={eggThreshold}
+          productType="Eggs"
           resetProduct={handleRefill}
-          onThresholdChange={setMilkThreshold}
+          onThresholdChange={setEggThreshold}
         />
-
         <ReusableCard
           title="Butter"
           content={<Solid mass={butterMass} maxMass={500} />}
@@ -164,19 +164,19 @@ const Simulation = () => {
           onThresholdChange={setButterThreshold}
         />
 
-        <ReusableCard
-          title="Eggs"
-          content={<Individual count={eggCount} />}
+<ReusableCard
+          title="Milk"
+          content={<Liquid volume={milkVolume} maxVolume={1000} />}
           onConsume={() => {
-            setEggCount((prev) => Math.max(0, prev - 1));
-            handleConsume("Eggs", eggCount - 1);
+            setMilkVolume((prev) => Math.max(0, prev - 100));
+            handleConsume("Milk", milkVolume - 100);
           }}
-          label={`Eggs Remaining: ${eggCount}`}
-          recommendedProduct={recommendedEgg}
-          threshold={eggThreshold}
-          productType="Eggs"
+          label={`Milk Volume: ${milkVolume} mL`}
+          recommendedProduct={recommendedMilk}
+          threshold={milkThreshold}
+          productType="Milk"
           resetProduct={handleRefill}
-          onThresholdChange={setEggThreshold}
+          onThresholdChange={setMilkThreshold}
         />
       </div>
     </div>
