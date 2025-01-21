@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from logger import logger
+from routes.logger import logger
 from services.processProduct import ProcessProduct
 
 updateProductQuantity_bp = Blueprint('updateProductQuantity', __name__)

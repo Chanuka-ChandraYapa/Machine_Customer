@@ -16,7 +16,7 @@ def SearchProduct(name):
         response.raise_for_status()  # Raise an error for HTTP failures
         data = response.json()
         products = data["products"]
-        logger.info(f"Found {len(products)} products for {name}")
+        # logger.info(f"Found {len(products)} products for {name}")
         return products
 
     except requests.exceptions.RequestException as e:
@@ -25,7 +25,7 @@ def SearchProduct(name):
 def ProcessProduct(name, quantity):
     # Step 1: Check if the product should be bought
     if (name == "Milk" and quantity < 500) or (name == "Butter" and quantity < 250) or (name == "Eggs" and quantity < 15):  
-        logger.info(f"Quantity of {name} is low. Deciding whether to buy...")
+        # logger.info(f"Quantity of {name} is low. Deciding whether to buy...")
         
         # Step 2: Search for the product
         products = SearchProduct(name)
