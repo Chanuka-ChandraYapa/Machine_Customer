@@ -1,0 +1,135 @@
+2025-01-21 21:10:38,585 - INFO - Starting Flask server on localhost:5001
+2025-01-21 21:10:38,614 - WARNING -  * Debugger is active!
+2025-01-21 21:10:38,625 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:10:48,927 - INFO - Searching products with query: milk
+2025-01-21 21:10:48,927 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:48,928 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:48] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:49,001 - INFO - Searching products with query: milk
+2025-01-21 21:10:49,002 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:49,003 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:49] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:49,170 - INFO - Searching products with query: milk
+2025-01-21 21:10:49,170 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:49,171 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:49] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:49,360 - INFO - Searching products with query: milk
+2025-01-21 21:10:49,361 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:49,364 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:49] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:49,512 - INFO - Searching products with query: milk
+2025-01-21 21:10:49,513 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:49,515 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:49] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:49,680 - INFO - Searching products with query: milk
+2025-01-21 21:10:49,680 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:49,680 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:49] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:51,005 - INFO - Searching products with query: milk
+2025-01-21 21:10:51,005 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:51,006 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:51] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:10:51,083 - INFO - Searching products with query: milk
+2025-01-21 21:10:51,084 - INFO - Products matching query 'milk': 0
+2025-01-21 21:10:51,085 - INFO - 127.0.0.1 - - [21/Jan/2025 21:10:51] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,277 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,277 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,278 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,402 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,403 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,403 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,509 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,510 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,510 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,619 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,619 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,620 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,729 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,729 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,730 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:11:58,868 - INFO - Searching products with query: milk
+2025-01-21 21:11:58,869 - INFO - Products matching query 'milk': 0
+2025-01-21 21:11:58,869 - INFO - 127.0.0.1 - - [21/Jan/2025 21:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:12:00,320 - INFO - Searching products with query: milk
+2025-01-21 21:12:00,320 - INFO - Products matching query 'milk': 0
+2025-01-21 21:12:00,321 - INFO - 127.0.0.1 - - [21/Jan/2025 21:12:00] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:13:49,125 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:13:49,128 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:15:52,617 - WARNING -  * Debugger is active!
+2025-01-21 21:15:52,626 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:15:56,378 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\flask\\json\\__init__.py', reloading
+2025-01-21 21:15:56,382 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\flask\\wrappers.py', reloading
+2025-01-21 21:15:56,386 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\wrappers\\__init__.py', reloading
+2025-01-21 21:15:56,388 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\wrappers\\response.py', reloading
+2025-01-21 21:15:56,399 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\flask\\globals.py', reloading
+2025-01-21 21:15:56,403 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\wrappers\\request.py', reloading
+2025-01-21 21:15:56,411 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\sansio\\request.py', reloading
+2025-01-21 21:15:56,417 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\utils.py', reloading
+2025-01-21 21:15:56,456 - INFO -  * Detected change in 'C:\\anaconda3\\Lib\\site-packages\\werkzeug\\datastructures\\structures.py', reloading
+2025-01-21 21:15:58,355 - WARNING -  * Debugger is active!
+2025-01-21 21:15:58,369 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:16:28,004 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:16:28,007 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:16:29,578 - WARNING -  * Debugger is active!
+2025-01-21 21:16:29,587 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:16:46,979 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:16:46,981 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:16:46,982 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:16:48,514 - WARNING -  * Debugger is active!
+2025-01-21 21:16:48,523 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:17:02,649 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:02,650 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:02,650 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:04,217 - WARNING -  * Debugger is active!
+2025-01-21 21:17:04,241 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:17:25,984 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:25,984 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:25,985 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:27,552 - WARNING -  * Debugger is active!
+2025-01-21 21:17:27,563 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:17:39,517 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:39,519 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:41,049 - WARNING -  * Debugger is active!
+2025-01-21 21:17:41,059 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:17:56,016 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:56,017 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:56,017 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:17:57,604 - WARNING -  * Debugger is active!
+2025-01-21 21:17:57,622 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:18:09,793 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:09,794 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:09,795 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:11,321 - WARNING -  * Debugger is active!
+2025-01-21 21:18:11,331 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:18:30,388 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:30,390 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:30,391 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:31,960 - WARNING -  * Debugger is active!
+2025-01-21 21:18:31,973 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:18:42,749 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:42,756 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:42,757 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:44,401 - WARNING -  * Debugger is active!
+2025-01-21 21:18:44,414 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:18:55,603 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:55,607 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:55,607 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:18:57,181 - WARNING -  * Debugger is active!
+2025-01-21 21:18:57,190 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:19:56,053 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:19:56,055 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:19:56,059 - INFO -  * Detected change in 'C:\\Users\\Chanuka lakshan\\Documents\\Machine_Customer\\mock-api\\products.py', reloading
+2025-01-21 21:19:57,574 - INFO - Starting Flask server on localhost:5001
+2025-01-21 21:19:57,605 - WARNING -  * Debugger is active!
+2025-01-21 21:19:57,615 - INFO -  * Debugger PIN: 112-661-719
+2025-01-21 21:20:34,650 - INFO - Searching products with query: milk
+2025-01-21 21:20:34,651 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:34,653 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:34] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:20:34,803 - INFO - Searching products with query: milk
+2025-01-21 21:20:34,804 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:34,805 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:34] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:20:34,914 - INFO - Searching products with query: milk
+2025-01-21 21:20:34,916 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:34,916 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:34] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:20:35,104 - INFO - Searching products with query: milk
+2025-01-21 21:20:35,104 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:35,105 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:35] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:20:35,254 - INFO - Searching products with query: milk
+2025-01-21 21:20:35,255 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:35,256 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:35] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:20:35,466 - INFO - Searching products with query: milk
+2025-01-21 21:20:35,466 - INFO - Products matching query 'milk': 3
+2025-01-21 21:20:35,470 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:35] "GET /products/search?q=Milk HTTP/1.1" 200 -
