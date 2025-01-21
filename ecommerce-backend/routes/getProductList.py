@@ -6,7 +6,9 @@ import json
 getProductList_bp = Blueprint('getProductList', __name__)
 
 # Initialize the Groq client with your API key
-client = Groq(api_key="GROQ_API")
+client = Groq(
+    api_key="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")
+
 
 @getProductList_bp.route('/getProductList', methods=['POST'])
 def get_product_list():
@@ -37,13 +39,13 @@ def get_product_list():
             """
             # Convert the simple prompt into a messages array
             messages = [{"role": "user", "content": new_prompt}]
-        
+
         # Set other optional parameters
         model = data.get('model', 'llama-3.3-70b-versatile')
         temperature = data.get('temperature', 1)
         max_tokens = data.get('max_tokens', 1024)
         top_p = data.get('top_p', 1)
-        
+
         # Call the Groq API
         completion = client.chat.completions.create(
             model=model,
@@ -53,12 +55,12 @@ def get_product_list():
             top_p=top_p,
             stream=True,
         )
-        
+
         # Stream the response
         response_content = ""
         for chunk in completion:
             response_content += chunk.choices[0].delta.content or ""
-        
+
         # Extract JSON from the response content
         try:
             # Remove code block markers if present
@@ -67,7 +69,8 @@ def get_product_list():
             parsed_json = json.loads(clean_response)
         except Exception as e:
             # If parsing fails, return raw response
-            parsed_json = {"error": "Failed to parse JSON", "raw_response": response_content}
+            parsed_json = {"error": "Failed to parse JSON",
+                           "raw_response": response_content}
 
         # Return the parsed JSON or raw response
         return jsonify(parsed_json)
