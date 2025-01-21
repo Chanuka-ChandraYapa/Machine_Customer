@@ -80,6 +80,9 @@ def extract_response_email(email):
                         expedited_shipping: Availability and terms of expedited shipping (if mentioned).
                         bulk_incentives: Any additional benefits or incentives offered for bulk purchase or long-term collaboration.
                         If any of these fields are missing or unclear in the email, include them in the JSON file with a value of null or undefined. Ensure the extracted details are accurate and correctly formatted.
+
+                        The below is the email:
+                        {email}
         """
         # Convert the simple prompt into a messages array
         messages = [{"role": "user", "content": new_prompt}]
@@ -114,7 +117,7 @@ def extract_response_email(email):
             # parsed_json = json.loads(clean_response)
         except Exception as e:
             # If parsing fails, return raw response
-            parsed_json = {"error": "Failed to parse JSON",
+            clean_response = {"error": "Failed to parse JSON",
                            "raw_response": response_content}
 
         # Return the parsed JSON or raw response
@@ -123,21 +126,3 @@ def extract_response_email(email):
     except Exception as e:
         print("Error:", e)
         return jsonify({'error': str(e)}), 500
-
-
-email = """Thank you for your inquiry about [product_name]. Below are the details regarding your request:
-            Product Name: [Product Name]
-            Quoted Price Per Unit: $20.00 (for quantities of 100 or more).
-            Quantity: 100 units.
-            Current Discount: 5% off for orders of 100 units or more.
-            If you double the quantity to 200 units, we can offer an increased discount of 10%.
-
-            Additional details:
-
-            Payment Terms: We offer a 2% discount for payments made within 10 days. Standard payment terms are 30 days net.
-            Lead Time: The lead time for delivery is 14 business days after receiving the purchase order.
-            Expedited Shipping: We can expedite shipping to 7 business days for an additional charge of $50.
-            Bulk Incentives: For orders exceeding 500 units, we can discuss further discounts or additional incentives like free shipping.
-            We are happy to answer any further questions or discuss customized terms based on your requirements. Please feel free to reach out."""
-
-print(extract_response_email(email))

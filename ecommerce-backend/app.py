@@ -4,8 +4,9 @@ from routes.products import products_bp
 from routes.requirements import requirements_bp
 from routes.updateProductQuantity import updateProductQuantity_bp
 from routes.getProductList import getProductList_bp
-from routes.createNegotiationEmail import createNegotiationEmail_bp
+from routes.createNegotiation import createNegotiationEmail_bp
 from routes.predictConsumption import predictConsumption_bp
+from routes.createNegotiation import extractDiscuntDetails_bp
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +18,7 @@ app.register_blueprint(updateProductQuantity_bp)
 app.register_blueprint(getProductList_bp)
 app.register_blueprint(createNegotiationEmail_bp)
 app.register_blueprint(predictConsumption_bp)
+app.register_blueprint(extractDiscuntDetails_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
