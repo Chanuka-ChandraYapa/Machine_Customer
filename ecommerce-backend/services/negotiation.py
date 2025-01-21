@@ -83,6 +83,8 @@ def extract_response_email(email):
 
                         The below is the email:
                         {email}
+
+                        Only give the extracted details in the JSON format. Do not include any additional information.
         """
         # Convert the simple prompt into a messages array
         messages = [{"role": "user", "content": new_prompt}]
@@ -114,14 +116,14 @@ def extract_response_email(email):
             clean_response = response_content.strip("```")
             # print(clean_response)
             # Parse the JSON string
-            # parsed_json = json.loads(clean_response)
+            parsed_json = json.loads(clean_response)
         except Exception as e:
             # If parsing fails, return raw response
             clean_response = {"error": "Failed to parse JSON",
                            "raw_response": response_content}
 
         # Return the parsed JSON or raw response
-        return clean_response
+        return parsed_json
 
     except Exception as e:
         print("Error:", e)
