@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from services.feature_extraction import preprocess_products
 from services.clustering import cluster
 from services.ranking import rank
-from routes.logger import logger
+from services.logger import logger
 
 products_bp = Blueprint('products', __name__)
 

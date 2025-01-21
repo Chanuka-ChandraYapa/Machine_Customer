@@ -309,3 +309,11 @@
 2025-01-21 22:25:45,671 - INFO -  * Restarting with stat
 2025-01-21 22:25:45,882 - WARNING -  * Debugger is active!
 2025-01-21 22:25:45,885 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:48:20,102 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,261 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,394 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,523 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,675 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:54:56,865 - INFO - 127.0.0.1 - - [21/Jan/2025 22:54:56] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:55:31,707 - INFO - 127.0.0.1 - - [21/Jan/2025 22:55:31] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:58:40,950 - INFO - 127.0.0.1 - - [21/Jan/2025 22:58:40] "GET /products/search?q=Milk HTTP/1.1" 200 -

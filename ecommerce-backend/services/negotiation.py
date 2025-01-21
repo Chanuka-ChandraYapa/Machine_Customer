@@ -8,19 +8,27 @@ client = Groq(
 
 
 def generate_negotiation_email(product):
-    product_name = product.get('product_name', 'product')
-    quantity = product.get('quantity', '100')
+    product_name = product.get('title', 'title')
+    quantity = product.get('minimumOrderQuantity', '1')
     price = product.get('price', '100')
     double_quantity = str(int(quantity) * 2)
+    supplier_name = product.get('supplier', 'dummy supplier')
 
     try:
 
-        new_prompt = f"""Write a professional email to negotiate with a supplier about purchasing {product_name}. Specify that the intended quantity is {quantity}, and the quoted price is {price} per unit. Mention the currently offered discount and ask for details on how much the discount could be increased if double the quantity ({double_quantity}) is purchased.
+        new_prompt = f""""Write a professional email to {supplier_name} to negotiate about purchasing {product_name}. Specify that the intended quantity is {quantity}, and the quoted price is {price} per unit. Mention the currently offered discount and ask for details on how much the discount could be increased if double the quantity ({double_quantity}) is purchased.
                         Additionally, inquire about:
                         Payment terms (e.g., discounts for early payment or extended payment schedules).
                         Lead time for delivery and whether there are options for expedited shipping.
                         Bulk purchase incentives or other benefits for a long-term partnership.
-                        The email should maintain a respectful and professional tone, express an interest in establishing a collaborative business relationship, and request a detailed response regarding the updated terms and conditions.
+                        The email should maintain a respectful and professional tone, express an interest in establishing a collaborative business relationship, and request a detailed response regarding the updated terms and conditions. Do not give [] for non existing fields.
+
+                        
+                        BuyGenix,
+                        Team Pentapower,
+
+                        Tel: 0770042188
+
         """
         # Convert the simple prompt into a messages array
         messages = [{"role": "user", "content": new_prompt}]

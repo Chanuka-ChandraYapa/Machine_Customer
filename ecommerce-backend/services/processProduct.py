@@ -1,9 +1,9 @@
 import requests
 from services.clustering import cluster
-from logger import logger
 from services.ranking import rank
 from services.feature_extraction import preprocess_products
 from services.requirements import user_criteria
+from logger import logger
 
 def SearchProduct(name):
     # URL for searching products
@@ -43,7 +43,6 @@ def ProcessProduct(name, quantity):
             
             # Step 6: Select the best product based on ranking
             best_product = ranked_products[0]  # Select the top-ranked product
-            logger.info (f"Best product to buy: {best_product}")
             
             # replace best_product with the actual product by searching the product in the products by 'id'.
             for product in products:

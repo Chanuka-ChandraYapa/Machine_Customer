@@ -24,8 +24,6 @@ def rank(products):
     df['shipping_time_normalized'] = normalize(
         df['shipping_time'], inverse=True)
 
-    print(df['price_normalized'])
-
     # Step 2: Calculate weighted scores for each product
     df['weighted_score'] = (
         df['price_normalized'] * user_weights['price'] +
