@@ -29,4 +29,4 @@ example_data = {
 # Insert example data
 feedback_collection.insert_one(example_data)
 
-print("Example data inserted into MongoDB!")
+# print("Example data inserted into MongoDB!")

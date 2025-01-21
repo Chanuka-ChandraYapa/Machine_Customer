@@ -8,6 +8,5 @@ def requirements():
     data = request.json
     requirements = data.get('requirements')
     update_requirements(requirements)
-    print(requirements)
 
     return jsonify({"status": "success", "processed_data": ""})
