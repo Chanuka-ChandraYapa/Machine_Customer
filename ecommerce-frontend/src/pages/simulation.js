@@ -57,29 +57,37 @@ const Simulation = () => {
   };
 
   const handleConsume = async (productName, remainingQuantity) => {
-    try {
-      const response = await sendProductUpdates({
-        productName: productName,
-        remainingQuantity: remainingQuantity,
-      });
-      console.log(`${productName} update sent successfully:`, response);
+    // Check if the remaining quantity is below the threshold
+    const isBelowThreshold =
+      (productName === "Milk" && remainingQuantity < milkThreshold) ||
+      (productName === "Butter" && remainingQuantity < butterThreshold) ||
+      (productName === "Eggs" && remainingQuantity < eggThreshold);
 
-      if (response.best_product) {
-        if (productName === "Milk" && remainingQuantity < milkThreshold) {
-          setRecommendedMilk(response.best_product);
-        } else if (
-          productName === "Butter" &&
-          remainingQuantity < butterThreshold
-        ) {
-          setRecommendedButter(response.best_product);
-        } else if (productName === "Eggs" && remainingQuantity < eggThreshold) {
-          setRecommendedEgg(response.best_product);
+    if (isBelowThreshold) {
+      try {
+        const response = await sendProductUpdates({
+          productName: productName,
+          remainingQuantity: remainingQuantity,
+        });
+        console.log(`${productName} update sent successfully:`, response);
+
+        if (response.best_product) {
+          if (productName === "Milk") {
+            setRecommendedMilk(response.best_product);
+          } else if (productName === "Butter") {
+            setRecommendedButter(response.best_product);
+          } else if (productName === "Eggs") {
+            setRecommendedEgg(response.best_product);
+          }
         }
+      } catch (error) {
+        console.error(`Error sending update for ${productName}:`, error);
       }
-    } catch (error) {
-      console.error(`Error sending update for ${productName}:`, error);
+    } else {
+      console.log(`${productName} is above the threshold, no update needed.`);
     }
   };
+
 
   const handleRefill = (productType) => {
     switch (productType) {
@@ -134,7 +142,7 @@ const Simulation = () => {
         </label>
       </div>
       <div className="food-items">
-                
+
         <ReusableCard
           title="Eggs"
           content={<Individual count={eggCount} />}
@@ -164,7 +172,7 @@ const Simulation = () => {
           onThresholdChange={setButterThreshold}
         />
 
-<ReusableCard
+        <ReusableCard
           title="Milk"
           content={<Liquid volume={milkVolume} maxVolume={1000} />}
           onConsume={() => {

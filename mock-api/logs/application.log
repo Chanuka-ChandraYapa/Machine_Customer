@@ -133,3 +133,187 @@
 2025-01-21 21:20:35,466 - INFO - Searching products with query: milk
 2025-01-21 21:20:35,466 - INFO - Products matching query 'milk': 3
 2025-01-21 21:20:35,470 - INFO - 127.0.0.1 - - [21/Jan/2025 21:20:35] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:39:28,273 - INFO - Starting Flask server on localhost:5001
+2025-01-21 21:39:28,305 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5001
+2025-01-21 21:39:28,305 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-21 21:39:28,306 - INFO -  * Restarting with stat
+2025-01-21 21:39:28,564 - INFO - Starting Flask server on localhost:5001
+2025-01-21 21:39:28,576 - WARNING -  * Debugger is active!
+2025-01-21 21:39:28,579 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 21:40:21,668 - INFO - Searching products with query: milk
+2025-01-21 21:40:21,669 - INFO - Products matching query 'milk': 3
+2025-01-21 21:40:21,669 - INFO - 127.0.0.1 - - [21/Jan/2025 21:40:21] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:40:22,272 - INFO - Searching products with query: milk
+2025-01-21 21:40:22,272 - INFO - Products matching query 'milk': 3
+2025-01-21 21:40:22,272 - INFO - 127.0.0.1 - - [21/Jan/2025 21:40:22] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:40:23,177 - INFO - Searching products with query: milk
+2025-01-21 21:40:23,177 - INFO - Products matching query 'milk': 3
+2025-01-21 21:40:23,178 - INFO - 127.0.0.1 - - [21/Jan/2025 21:40:23] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:40:24,487 - INFO - Searching products with query: milk
+2025-01-21 21:40:24,487 - INFO - Products matching query 'milk': 3
+2025-01-21 21:40:24,489 - INFO - 127.0.0.1 - - [21/Jan/2025 21:40:24] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:40:25,218 - INFO - Searching products with query: milk
+2025-01-21 21:40:25,218 - INFO - Products matching query 'milk': 3
+2025-01-21 21:40:25,218 - INFO - 127.0.0.1 - - [21/Jan/2025 21:40:25] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:45:02,633 - INFO - Searching products with query: milk
+2025-01-21 21:45:02,633 - INFO - Products matching query 'milk': 3
+2025-01-21 21:45:02,633 - INFO - 127.0.0.1 - - [21/Jan/2025 21:45:02] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:45:02,758 - INFO - Searching products with query: milk
+2025-01-21 21:45:02,758 - INFO - Products matching query 'milk': 3
+2025-01-21 21:45:02,759 - INFO - 127.0.0.1 - - [21/Jan/2025 21:45:02] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:45:03,651 - INFO - Searching products with query: milk
+2025-01-21 21:45:03,652 - INFO - Products matching query 'milk': 3
+2025-01-21 21:45:03,653 - INFO - 127.0.0.1 - - [21/Jan/2025 21:45:03] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:45:04,150 - INFO - Searching products with query: milk
+2025-01-21 21:45:04,150 - INFO - Products matching query 'milk': 3
+2025-01-21 21:45:04,150 - INFO - 127.0.0.1 - - [21/Jan/2025 21:45:04] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:48:33,741 - INFO - Searching products with query: milk
+2025-01-21 21:48:33,741 - INFO - Products matching query 'milk': 3
+2025-01-21 21:48:33,741 - INFO - 127.0.0.1 - - [21/Jan/2025 21:48:33] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:48:34,791 - INFO - Searching products with query: milk
+2025-01-21 21:48:34,791 - INFO - Products matching query 'milk': 3
+2025-01-21 21:48:34,792 - INFO - 127.0.0.1 - - [21/Jan/2025 21:48:34] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:48:36,182 - INFO - Searching products with query: milk
+2025-01-21 21:48:36,182 - INFO - Products matching query 'milk': 3
+2025-01-21 21:48:36,182 - INFO - 127.0.0.1 - - [21/Jan/2025 21:48:36] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:48:39,523 - INFO - Searching products with query: milk
+2025-01-21 21:48:39,523 - INFO - Products matching query 'milk': 3
+2025-01-21 21:48:39,523 - INFO - 127.0.0.1 - - [21/Jan/2025 21:48:39] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:55:30,020 - INFO - Searching products with query: milk
+2025-01-21 21:55:30,020 - INFO - Products matching query 'milk': 3
+2025-01-21 21:55:30,020 - INFO - 127.0.0.1 - - [21/Jan/2025 21:55:30] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:55:31,319 - INFO - Searching products with query: milk
+2025-01-21 21:55:31,319 - INFO - Products matching query 'milk': 3
+2025-01-21 21:55:31,320 - INFO - 127.0.0.1 - - [21/Jan/2025 21:55:31] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:55:31,757 - INFO - Searching products with query: milk
+2025-01-21 21:55:31,757 - INFO - Products matching query 'milk': 3
+2025-01-21 21:55:31,759 - INFO - 127.0.0.1 - - [21/Jan/2025 21:55:31] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:55:32,605 - INFO - Searching products with query: milk
+2025-01-21 21:55:32,605 - INFO - Products matching query 'milk': 3
+2025-01-21 21:55:32,606 - INFO - 127.0.0.1 - - [21/Jan/2025 21:55:32] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:57:02,959 - INFO - Searching products with query: milk
+2025-01-21 21:57:02,959 - INFO - Products matching query 'milk': 3
+2025-01-21 21:57:02,959 - INFO - 127.0.0.1 - - [21/Jan/2025 21:57:02] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:57:03,145 - INFO - Searching products with query: milk
+2025-01-21 21:57:03,145 - INFO - Products matching query 'milk': 3
+2025-01-21 21:57:03,146 - INFO - 127.0.0.1 - - [21/Jan/2025 21:57:03] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:57:03,970 - INFO - Searching products with query: milk
+2025-01-21 21:57:03,970 - INFO - Products matching query 'milk': 3
+2025-01-21 21:57:03,981 - INFO - 127.0.0.1 - - [21/Jan/2025 21:57:03] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 21:57:04,813 - INFO - Searching products with query: milk
+2025-01-21 21:57:04,813 - INFO - Products matching query 'milk': 3
+2025-01-21 21:57:04,813 - INFO - 127.0.0.1 - - [21/Jan/2025 21:57:04] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:00:12,052 - INFO -  * Detected change in "C:\\Aravinda's File\\ACA\\Z-Other\\Machine_Customer\\mock-api\\products.py", reloading
+2025-01-21 22:00:12,164 - INFO -  * Restarting with stat
+2025-01-21 22:00:12,417 - INFO - Starting Flask server on localhost:5001
+2025-01-21 22:00:12,429 - WARNING -  * Debugger is active!
+2025-01-21 22:00:12,432 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:00:14,452 - INFO -  * Detected change in "C:\\Aravinda's File\\ACA\\Z-Other\\Machine_Customer\\mock-api\\products.py", reloading
+2025-01-21 22:00:14,507 - INFO -  * Restarting with stat
+2025-01-21 22:00:14,803 - INFO - Starting Flask server on localhost:5001
+2025-01-21 22:00:14,818 - WARNING -  * Debugger is active!
+2025-01-21 22:00:14,822 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:00:21,863 - INFO -  * Detected change in "C:\\Aravinda's File\\ACA\\Z-Other\\Machine_Customer\\mock-api\\products.py", reloading
+2025-01-21 22:00:21,923 - INFO -  * Restarting with stat
+2025-01-21 22:00:22,253 - INFO - Starting Flask server on localhost:5001
+2025-01-21 22:00:22,264 - WARNING -  * Debugger is active!
+2025-01-21 22:00:22,267 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:01:30,748 - INFO - Searching products with query: milk
+2025-01-21 22:01:30,748 - INFO - Products matching query 'milk': 3
+2025-01-21 22:01:30,749 - INFO - 127.0.0.1 - - [21/Jan/2025 22:01:30] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:01:32,121 - INFO - Searching products with query: milk
+2025-01-21 22:01:32,121 - INFO - Products matching query 'milk': 3
+2025-01-21 22:01:32,121 - INFO - 127.0.0.1 - - [21/Jan/2025 22:01:32] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:01:32,308 - INFO - Searching products with query: milk
+2025-01-21 22:01:32,309 - INFO - Products matching query 'milk': 3
+2025-01-21 22:01:32,309 - INFO - 127.0.0.1 - - [21/Jan/2025 22:01:32] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:01:32,525 - INFO - Searching products with query: milk
+2025-01-21 22:01:32,526 - INFO - Products matching query 'milk': 3
+2025-01-21 22:01:32,526 - INFO - 127.0.0.1 - - [21/Jan/2025 22:01:32] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:04:56,122 - INFO - Searching products with query: milk
+2025-01-21 22:04:56,122 - INFO - Products matching query 'milk': 3
+2025-01-21 22:04:56,122 - INFO - 127.0.0.1 - - [21/Jan/2025 22:04:56] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:04:56,263 - INFO - Searching products with query: milk
+2025-01-21 22:04:56,263 - INFO - Products matching query 'milk': 3
+2025-01-21 22:04:56,265 - INFO - 127.0.0.1 - - [21/Jan/2025 22:04:56] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:04:56,481 - INFO - Searching products with query: milk
+2025-01-21 22:04:56,482 - INFO - Products matching query 'milk': 3
+2025-01-21 22:04:56,482 - INFO - 127.0.0.1 - - [21/Jan/2025 22:04:56] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:05:00,096 - INFO - Searching products with query: milk
+2025-01-21 22:05:00,096 - INFO - Products matching query 'milk': 3
+2025-01-21 22:05:00,097 - INFO - 127.0.0.1 - - [21/Jan/2025 22:05:00] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:07:15,473 - INFO - Searching products with query: milk
+2025-01-21 22:07:15,473 - INFO - Products matching query 'milk': 3
+2025-01-21 22:07:15,474 - INFO - 127.0.0.1 - - [21/Jan/2025 22:07:15] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:07:15,677 - INFO - Searching products with query: milk
+2025-01-21 22:07:15,677 - INFO - Products matching query 'milk': 3
+2025-01-21 22:07:15,677 - INFO - 127.0.0.1 - - [21/Jan/2025 22:07:15] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:07:16,333 - INFO - Searching products with query: milk
+2025-01-21 22:07:16,333 - INFO - Products matching query 'milk': 3
+2025-01-21 22:07:16,334 - INFO - 127.0.0.1 - - [21/Jan/2025 22:07:16] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:07:17,579 - INFO - Searching products with query: milk
+2025-01-21 22:07:17,579 - INFO - Products matching query 'milk': 3
+2025-01-21 22:07:17,579 - INFO - 127.0.0.1 - - [21/Jan/2025 22:07:17] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:08:24,991 - INFO - Searching products with query: milk
+2025-01-21 22:08:24,992 - INFO - Products matching query 'milk': 3
+2025-01-21 22:08:24,992 - INFO - 127.0.0.1 - - [21/Jan/2025 22:08:24] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:08:25,132 - INFO - Searching products with query: milk
+2025-01-21 22:08:25,132 - INFO - Products matching query 'milk': 3
+2025-01-21 22:08:25,133 - INFO - 127.0.0.1 - - [21/Jan/2025 22:08:25] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:08:25,321 - INFO - Searching products with query: milk
+2025-01-21 22:08:25,322 - INFO - Products matching query 'milk': 3
+2025-01-21 22:08:25,322 - INFO - 127.0.0.1 - - [21/Jan/2025 22:08:25] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:08:25,463 - INFO - Searching products with query: milk
+2025-01-21 22:08:25,463 - INFO - Products matching query 'milk': 3
+2025-01-21 22:08:25,463 - INFO - 127.0.0.1 - - [21/Jan/2025 22:08:25] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:09:54,273 - INFO - Searching products with query: milk
+2025-01-21 22:09:54,273 - INFO - Products matching query 'milk': 3
+2025-01-21 22:09:54,274 - INFO - 127.0.0.1 - - [21/Jan/2025 22:09:54] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:09:54,428 - INFO - Searching products with query: milk
+2025-01-21 22:09:54,429 - INFO - Products matching query 'milk': 3
+2025-01-21 22:09:54,429 - INFO - 127.0.0.1 - - [21/Jan/2025 22:09:54] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:09:54,600 - INFO - Searching products with query: milk
+2025-01-21 22:09:54,600 - INFO - Products matching query 'milk': 3
+2025-01-21 22:09:54,601 - INFO - 127.0.0.1 - - [21/Jan/2025 22:09:54] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:09:54,771 - INFO - Searching products with query: milk
+2025-01-21 22:09:54,772 - INFO - Products matching query 'milk': 3
+2025-01-21 22:09:54,772 - INFO - 127.0.0.1 - - [21/Jan/2025 22:09:54] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:09:54,941 - INFO - Searching products with query: milk
+2025-01-21 22:09:54,941 - INFO - Products matching query 'milk': 3
+2025-01-21 22:09:54,942 - INFO - 127.0.0.1 - - [21/Jan/2025 22:09:54] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:11:58,281 - INFO - Searching products with query: milk
+2025-01-21 22:11:58,281 - INFO - Products matching query 'milk': 3
+2025-01-21 22:11:58,281 - INFO - 127.0.0.1 - - [21/Jan/2025 22:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:11:58,436 - INFO - Searching products with query: milk
+2025-01-21 22:11:58,436 - INFO - Products matching query 'milk': 3
+2025-01-21 22:11:58,436 - INFO - 127.0.0.1 - - [21/Jan/2025 22:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:11:58,654 - INFO - Searching products with query: milk
+2025-01-21 22:11:58,654 - INFO - Products matching query 'milk': 3
+2025-01-21 22:11:58,655 - INFO - 127.0.0.1 - - [21/Jan/2025 22:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:11:58,999 - INFO - Searching products with query: milk
+2025-01-21 22:11:58,999 - INFO - Products matching query 'milk': 3
+2025-01-21 22:11:58,999 - INFO - 127.0.0.1 - - [21/Jan/2025 22:11:58] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:12,379 - WARNING -  * Debugger is active!
+2025-01-21 22:25:12,382 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:25:29,170 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:29,310 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:29,455 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:29,576 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:29,738 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:29,869 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:29] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:31,283 - INFO - 127.0.0.1 - - [21/Jan/2025 22:25:31] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:25:45,670 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5001
+2025-01-21 22:25:45,670 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-21 22:25:45,671 - INFO -  * Restarting with stat
+2025-01-21 22:25:45,882 - WARNING -  * Debugger is active!
+2025-01-21 22:25:45,885 - INFO -  * Debugger PIN: 118-701-015
+2025-01-21 22:48:20,102 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,261 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,394 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,523 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:48:20,675 - INFO - 127.0.0.1 - - [21/Jan/2025 22:48:20] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:54:56,865 - INFO - 127.0.0.1 - - [21/Jan/2025 22:54:56] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:55:31,707 - INFO - 127.0.0.1 - - [21/Jan/2025 22:55:31] "GET /products/search?q=Milk HTTP/1.1" 200 -
+2025-01-21 22:58:40,950 - INFO - 127.0.0.1 - - [21/Jan/2025 22:58:40] "GET /products/search?q=Milk HTTP/1.1" 200 -
