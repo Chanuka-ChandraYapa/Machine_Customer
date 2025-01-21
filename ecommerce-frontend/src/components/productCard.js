@@ -46,6 +46,9 @@ const ProductCard = ({ product }) => {
             {product.description}
           </Typography>
         </Box>
+        <Typography variant="h7" sx={{ mt: 1 }}>
+          Quantity: {product.minimumOrderQuantity}
+        </Typography>
         <Typography variant="h6" sx={{ mt: 1 }}>
           ${product.price}
         </Typography>
