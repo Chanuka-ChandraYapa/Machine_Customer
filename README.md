@@ -1,6 +1,6 @@
-# Smart Cart: Next-Generation E-Commerce with Machine Customers
+# BuyGenix: Next-Generation E-Commerce with Machine Customers
 
-**Smart Cart** is a groundbreaking platform designed to redefine the e-commerce experience with the power of AI. By introducing the concept of "machine customers," this project aims to enable automated AI agents to shop on behalf of users. These intelligent agents autonomously evaluate products, compare deals, and make data-driven purchasing decisions, mimicking human shopping behavior efficiently and intelligently.  
+**BuyGenix** is a groundbreaking platform designed to redefine the e-commerce experience with the power of AI. By introducing the concept of "machine customers," this project aims to enable automated AI agents to shop on behalf of users. These intelligent agents autonomously evaluate products, compare deals, and make data-driven purchasing decisions, mimicking human shopping behavior efficiently and intelligently.  
 
 ---
 
